@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0 (Python 3.7.10 on darwin)" generated="20211013 12:43:49.716" rpa="false" schemaversion="2">
+<suite id="s1" name="RoamingPackage" source="/Users/phamhaituan/Documents/PROJECTS/Auto_git/PhinconRepo/PhinconAutomationtest/6.0.0/testcases/Regression/14_RoamingPackage/RoamingPackage.robot">
+<kw name="Check PreConditional" type="SETUP">
+<tag>Invalid Phone Number</tag>
+<doc>Pre Step to make sure user already login, check premission HomePage appear (TEST DOCUMENT)
+|*TC Android*| TC531 TC535 TC536 TC537 TC538|
+|*TC IOS*| TC1669 TC1673 TC1674 TC1675 TC1676|
+|*TC Type*| Positive Case|</doc>
+<kw name="Reopen App" library="config">
+<arg>${EMPTY}</arg>
+<kw name="Open Application" library="AppiumLibrary">
+<arg>${HOST}:${port}/wd/hub</arg>
+<arg>automationName=${AUTOMATION_NAME}</arg>
+<arg>app=${APP}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>platformVersion=${PLATFORM_VERSION}</arg>
+<arg>appPackage=${APP_PACKAGE}</arg>
+<arg>appActivity=${Activity_Splash}</arg>
+<arg>deviceName=${Device_Name}</arg>
+<arg>autoGrantPermissions=true</arg>
+<arg>noReset=true</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<status status="PASS" starttime="20211013 12:43:51.734" endtime="20211013 12:44:00.697"/>
+</kw>
+<status status="PASS" starttime="20211013 12:43:51.729" endtime="20211013 12:44:00.698"/>
+</kw>
+<kw name="Check Launching New version" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Skip}</var>
+<arg>Wait until page contains</arg>
+<arg>${WCMS["onboarding_skip_button"]}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${WCMS["onboarding_skip_button"]}</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 12:44:10.095" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 12:44:08.828" endtime="20211013 12:44:10.096"/>
+</kw>
+<msg timestamp="20211013 12:44:10.097" level="FAIL">Text 'Skip' did not appear in 5 seconds</msg>
+<status status="FAIL" starttime="20211013 12:44:00.699" endtime="20211013 12:44:10.097"/>
+</kw>
+<msg timestamp="20211013 12:44:10.098" level="INFO">${Skip} = False</msg>
+<status status="PASS" starttime="20211013 12:44:00.699" endtime="20211013 12:44:10.098"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Skip}==True</arg>
+<arg>Click Text</arg>
+<arg>${WCMS["onboarding_skip_button"]}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:44:10.100" endtime="20211013 12:44:10.101"/>
+</kw>
+<status status="PASS" starttime="20211013 12:44:00.698" endtime="20211013 12:44:10.101"/>
+</kw>
+<kw name="Check Permission First Launch" library="CommonKeyWord">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${ENV}'=='ios'</arg>
+<arg>Check Permission iOS</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:44:10.102" endtime="20211013 12:44:10.103"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${ENV}'=='android'</arg>
+<arg>Check Permission Android</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Check Permission Android" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Permission}</var>
+<arg>Wait until page contains</arg>
+<arg>${MakeCall_Permission}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${MakeCall_Permission}</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 12:44:17.375" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-2.png"&gt;&lt;img src="appium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 12:44:16.203" endtime="20211013 12:44:17.376"/>
+</kw>
+<msg timestamp="20211013 12:44:17.377" level="FAIL">Text 'Allow MT-Native-Preprod to make and manage phone calls?' did not appear in 5 seconds</msg>
+<status status="FAIL" starttime="20211013 12:44:10.104" endtime="20211013 12:44:17.378"/>
+</kw>
+<msg timestamp="20211013 12:44:17.378" level="INFO">${Permission} = False</msg>
+<status status="PASS" starttime="20211013 12:44:10.103" endtime="20211013 12:44:17.378"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Permission}==True</arg>
+<arg>Verify Permission Android</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:44:17.379" endtime="20211013 12:44:17.381"/>
+</kw>
+<status status="PASS" starttime="20211013 12:44:10.103" endtime="20211013 12:44:17.382"/>
+</kw>
+<status status="PASS" starttime="20211013 12:44:10.103" endtime="20211013 12:44:17.382"/>
+</kw>
+<status status="PASS" starttime="20211013 12:44:10.102" endtime="20211013 12:44:17.383"/>
+</kw>
+<kw name="Check Tutup popup" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Tutup}</var>
+<arg>Wait until page contains element</arg>
+<arg>${Tutup_Btn}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${Tutup_Btn}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 12:44:24.311" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-3.png"&gt;&lt;img src="appium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 12:44:22.910" endtime="20211013 12:44:24.311"/>
+</kw>
+<msg timestamp="20211013 12:44:24.312" level="FAIL">Element 'com.telkomsel.mytelkomsel:id/insider_adjacent1' did not appear in 5 seconds</msg>
+<status status="FAIL" starttime="20211013 12:44:17.385" endtime="20211013 12:44:24.312"/>
+</kw>
+<msg timestamp="20211013 12:44:24.313" level="INFO">${Tutup} = False</msg>
+<status status="PASS" starttime="20211013 12:44:17.384" endtime="20211013 12:44:24.313"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Tutup}==True</arg>
+<arg>Click Element</arg>
+<arg>${Tutup_Btn}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:44:24.314" endtime="20211013 12:44:24.315"/>
+</kw>
+<status status="PASS" starttime="20211013 12:44:17.384" endtime="20211013 12:44:24.316"/>
+</kw>
+<kw name="Check Reminder" library="LoginCommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Reminder}</var>
+<arg>Wait until page contains</arg>
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 12:44:55.207" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-4.png"&gt;&lt;img src="appium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 12:44:54.440" endtime="20211013 12:44:55.207"/>
+</kw>
+<msg timestamp="20211013 12:44:55.207" level="FAIL">Text 'Remind me later' did not appear in 30 seconds</msg>
+<status status="FAIL" starttime="20211013 12:44:24.320" endtime="20211013 12:44:55.207"/>
+</kw>
+<msg timestamp="20211013 12:44:55.207" level="INFO">${Reminder} = False</msg>
+<status status="PASS" starttime="20211013 12:44:24.318" endtime="20211013 12:44:55.207"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Reminder}==True</arg>
+<arg>Click Text</arg>
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:44:55.208" endtime="20211013 12:44:55.208"/>
+</kw>
+<status status="PASS" starttime="20211013 12:44:24.316" endtime="20211013 12:44:55.208"/>
+</kw>
+<kw name="Check Tutup popup" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Tutup}</var>
+<arg>Wait until page contains element</arg>
+<arg>${Tutup_Btn}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${Tutup_Btn}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 12:45:01.103" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-5.png"&gt;&lt;img src="appium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 12:45:00.362" endtime="20211013 12:45:01.103"/>
+</kw>
+<msg timestamp="20211013 12:45:01.103" level="FAIL">Element 'com.telkomsel.mytelkomsel:id/insider_adjacent1' did not appear in 5 seconds</msg>
+<status status="FAIL" starttime="20211013 12:44:55.209" endtime="20211013 12:45:01.103"/>
+</kw>
+<msg timestamp="20211013 12:45:01.104" level="INFO">${Tutup} = False</msg>
+<status status="PASS" starttime="20211013 12:44:55.209" endtime="20211013 12:45:01.104"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Tutup}==True</arg>
+<arg>Click Element</arg>
+<arg>${Tutup_Btn}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:45:01.104" endtime="20211013 12:45:01.104"/>
+</kw>
+<status status="PASS" starttime="20211013 12:44:55.208" endtime="20211013 12:45:01.104"/>
+</kw>
+<kw name="Check default lang and swtich" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Lang}</var>
+<arg>Wait until page Contains</arg>
+<arg>ID</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>ID</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 12:45:32.034" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-6.png"&gt;&lt;img src="appium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 12:45:31.266" endtime="20211013 12:45:32.034"/>
+</kw>
+<msg timestamp="20211013 12:45:32.035" level="FAIL">Text 'ID' did not appear in 30 seconds</msg>
+<status status="FAIL" starttime="20211013 12:45:01.105" endtime="20211013 12:45:32.035"/>
+</kw>
+<msg timestamp="20211013 12:45:32.035" level="INFO">${Lang} = False</msg>
+<status status="PASS" starttime="20211013 12:45:01.105" endtime="20211013 12:45:32.035"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Lang}==True</arg>
+<arg>Click Text</arg>
+<arg>ID</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:45:32.035" endtime="20211013 12:45:32.035"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Lang}==True</arg>
+<arg>Click Text</arg>
+<arg>(United States)</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:45:32.035" endtime="20211013 12:45:32.036"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Lang}==True</arg>
+<arg>Wait until page Contains</arg>
+<arg>EN</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:45:32.036" endtime="20211013 12:45:32.036"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Lang}==True</arg>
+<arg>Wait until page Contains</arg>
+<arg>EN</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:45:32.036" endtime="20211013 12:45:32.036"/>
+</kw>
+<status status="PASS" starttime="20211013 12:45:01.104" endtime="20211013 12:45:32.037"/>
+</kw>
+<kw name="Check Banner on the login page" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${banner}</var>
+<arg>Wait until page contains</arg>
+<arg>${WCMS["onboarding_skip_button"]}</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${WCMS["onboarding_skip_button"]}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 12:46:02.984" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-7.png"&gt;&lt;img src="appium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 12:46:02.122" endtime="20211013 12:46:02.984"/>
+</kw>
+<msg timestamp="20211013 12:46:02.984" level="FAIL">Text 'Skip' did not appear in 30 seconds</msg>
+<status status="FAIL" starttime="20211013 12:45:32.037" endtime="20211013 12:46:02.985"/>
+</kw>
+<msg timestamp="20211013 12:46:02.985" level="INFO">${banner} = False</msg>
+<status status="PASS" starttime="20211013 12:45:32.037" endtime="20211013 12:46:02.985"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${banner}==True</arg>
+<arg>Click Text</arg>
+<arg>${WCMS["onboarding_skip_button"]}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:46:02.985" endtime="20211013 12:46:02.985"/>
+</kw>
+<status status="PASS" starttime="20211013 12:45:32.037" endtime="20211013 12:46:02.985"/>
+</kw>
+<kw name="Check Logined Default User" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Result}</var>
+<arg>Wait until page contains</arg>
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 12:46:33.930" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-8.png"&gt;&lt;img src="appium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 12:46:33.189" endtime="20211013 12:46:33.931"/>
+</kw>
+<msg timestamp="20211013 12:46:33.931" level="FAIL">Text '081397027224' did not appear in 30 seconds</msg>
+<status status="FAIL" starttime="20211013 12:46:02.986" endtime="20211013 12:46:33.931"/>
+</kw>
+<msg timestamp="20211013 12:46:33.931" level="INFO">${Result} = False</msg>
+<status status="PASS" starttime="20211013 12:46:02.986" endtime="20211013 12:46:33.931"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Result}==False</arg>
+<arg>Check First Time Install App And Login</arg>
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>${TW_Phonenumber}</arg>
+<arg>${TW_Account}</arg>
+<arg>${TW_Password}</arg>
+<arg>${TW_Email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Check First Time Install App And Login" library="CommonKeyWord">
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>${TW_Phonenumber}</arg>
+<arg>${TW_Account}</arg>
+<arg>${TW_Password}</arg>
+<arg>${TW_Email}</arg>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Result}</var>
+<arg>Check Permission First Launch</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Check Permission First Launch" library="CommonKeyWord">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${ENV}'=='ios'</arg>
+<arg>Check Permission iOS</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:46:33.933" endtime="20211013 12:46:33.933"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${ENV}'=='android'</arg>
+<arg>Check Permission Android</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Check Permission Android" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Permission}</var>
+<arg>Wait until page contains</arg>
+<arg>${MakeCall_Permission}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${MakeCall_Permission}</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 12:46:39.953" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-9.png"&gt;&lt;img src="appium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 12:46:39.178" endtime="20211013 12:46:39.953"/>
+</kw>
+<msg timestamp="20211013 12:46:39.953" level="FAIL">Text 'Allow MT-Native-Preprod to make and manage phone calls?' did not appear in 5 seconds</msg>
+<status status="FAIL" starttime="20211013 12:46:33.934" endtime="20211013 12:46:39.953"/>
+</kw>
+<msg timestamp="20211013 12:46:39.954" level="INFO">${Permission} = False</msg>
+<status status="PASS" starttime="20211013 12:46:33.934" endtime="20211013 12:46:39.954"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Permission}==True</arg>
+<arg>Verify Permission Android</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:46:39.954" endtime="20211013 12:46:39.954"/>
+</kw>
+<status status="PASS" starttime="20211013 12:46:33.934" endtime="20211013 12:46:39.954"/>
+</kw>
+<status status="PASS" starttime="20211013 12:46:33.933" endtime="20211013 12:46:39.954"/>
+</kw>
+<status status="PASS" starttime="20211013 12:46:33.933" endtime="20211013 12:46:39.954"/>
+</kw>
+<msg timestamp="20211013 12:46:39.955" level="INFO">${Result} = True</msg>
+<status status="PASS" starttime="20211013 12:46:33.932" endtime="20211013 12:46:39.955"/>
+</kw>
+<kw name="Login Social Account Twitter" library="LoginCommonKeyWord">
+<arg>${Phonenumber}</arg>
+<arg>${Account}</arg>
+<arg>${Password}</arg>
+<arg>${Email}</arg>
+<doc>Verify Login Page #TC470</doc>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${Login_page_Language}</arg>
+<arg>timeout=90</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20211013 12:48:10.767" level="INFO">&lt;?xml version='1.0' encoding='UTF-8' standalone='yes' ?&gt;
+&lt;hierarchy index="0" class="hierarchy" rotation="0" width="1440" height="2392"&gt;
+  &lt;android.widget.FrameLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1440,2392]" displayed="true"&gt;
+    &lt;android.widget.LinearLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1440,2392]" displayed="true"&gt;
+      &lt;android.widget.FrameLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1440,2392]" displayed="true"&gt;
+        &lt;android.widget.LinearLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/action_bar_root" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1440,2392]" displayed="true"&gt;
+          &lt;android.widget.FrameLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1440,2392]" displayed="true"&gt;
+            &lt;android.widget.RelativeLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/rootContainer" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1440,2392]" displayed="true"&gt;
+              &lt;android.widget.FrameLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/fcv_mainContainer" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1440,2178]" displayed="true"&gt;
+                &lt;android.widget.FrameLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1440,2178]" displayed="true"&gt;
+                  &lt;android.view.ViewGroup index="0" package="com.telkomsel.mytelkomsel" class="android.view.ViewGroup" text="" resource-id="com.telkomsel.mytelkomsel:id/csrl_swipeRefreshHome" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1440,2178]" displayed="true"&gt;
+                    &lt;android.view.ViewGroup index="0" package="com.telkomsel.mytelkomsel" class="android.view.ViewGroup" text="" resource-id="com.telkomsel.mytelkomsel:id/clRoot" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1440,2178]" displayed="true"&gt;
+                      &lt;android.widget.ScrollView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.ScrollView" text="" resource-id="com.telkomsel.mytelkomsel:id/nsv_root" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="true" selected="false" bounds="[0,0][1440,2178]" displayed="true"&gt;
+                        &lt;android.widget.RelativeLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1440,2178]" displayed="true"&gt;
+                          &lt;android.widget.ImageView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.ImageView" text="" resource-id="com.telkomsel.mytelkomsel:id/iv_header_background" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1440,2178]" displayed="true" /&gt;
+                          &lt;android.widget.RelativeLayout index="1" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/rl_headerHomeContainer" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1440,536]" displayed="true"&gt;
+                            &lt;android.widget.LinearLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/contain_dashboard" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,18][1440,536]" displayed="true"&gt;
+                              &lt;android.widget.RelativeLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,18][1440,358]" displayed="true"&gt;
+                                &lt;android.widget.FrameLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/fl_userHeaderProfile" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,18][948,358]" displayed="true"&gt;
+                                  &lt;android.widget.RelativeLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/layout_user_profile" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,18][948,358]" displayed="true"&gt;
+                                    &lt;android.widget.LinearLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/lay_user_name" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[36,154][912,322]" displayed="true"&gt;
+                                      &lt;android.widget.TextView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.TextView" text="Hi Telkomsel" resource-id="com.telkomsel.mytelkomsel:id/tv_greating" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[59,154][418,249]" displayed="true" /&gt;
+                                      &lt;android.widget.LinearLayout index="1" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[36,249][543,322]" displayed="true"&gt;
+                                        &lt;android.widget.TextView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.TextView" text="081397027224" resource-id="com.telkomsel.mytelkomsel:id/tv_prepaidMsisdnSelected" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[59,249][443,322]" displayed="true" /&gt;
+                                        &lt;android.widget.ImageButton index="1" package="com.telkomsel.mytelkomsel" class="android.widget.ImageButton" text="" resource-id="com.telkomsel.mytelkomsel:id/ib_prepaidMultiMsisdn" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[461,249][543,322]" displayed="true" /&gt;
+                                      &lt;/android.widget.LinearLayout&gt;
+                                    &lt;/android.widget.LinearLayout&gt;
+                                  &lt;/android.widget.RelativeLayout&gt;
+                                &lt;/android.widget.FrameLayout&gt;
+                                &lt;android.widget.LinearLayout index="1" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/headerBtnContainer" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[948,106][1431,270]" displayed="true"&gt;
+                                  &lt;android.widget.RelativeLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/rl_scan" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[948,106][1109,270]" displayed="true"&gt;
+                                    &lt;android.widget.RelativeLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/rl_scan_wrap" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[957,115][1100,261]" displayed="true"&gt;
+                                      &lt;android.widget.ImageView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.ImageView" text="" content-desc="TODO" resource-id="com.telkomsel.mytelkomsel:id/iv_dashboard_qrcode" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[983,142][1074,233]" displayed="true" /&gt;
+                                    &lt;/android.widget.RelativeLayout&gt;
+                                  &lt;/android.widget.RelativeLayout&gt;
+                                  &lt;android.widget.RelativeLayout index="1" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/rl_inbox" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1109,106][1270,270]" displayed="true"&gt;
+                                    &lt;android.widget.RelativeLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/rl_inbox_wrap" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1109,110][1264,265]" displayed="true"&gt;
+                                      &lt;android.widget.ImageView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.ImageView" text="" resource-id="com.telkomsel.mytelkomsel:id/iv_dashboard_inbox" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1132,137][1241,237]" displayed="true" /&gt;
+                                    &lt;/android.widget.RelativeLayout&gt;
+                                  &lt;/android.widget.RelativeLayout&gt;
+                                  &lt;android.widget.RelativeLayout index="2" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/rl_help" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1270,106][1431,270]" displayed="true"&gt;
+                                    &lt;android.widget.RelativeLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/rl_help_wrap" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1279,115][1422,261]" displayed="true"&gt;
+                                      &lt;android.widget.ImageView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.ImageView" text="" content-desc="TODO" resource-id="com.telkomsel.mytelkomsel:id/iv_dashboard_gethelp" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1298,135][1403,240]" displayed="true" /&gt;
+                                    &lt;/android.widget.RelativeLayout&gt;
+                                  &lt;/android.widget.RelativeLayout&gt;
+                                &lt;/android.widget.LinearLayout&gt;
+                              &lt;/android.widget.RelativeLayout&gt;
+                              &lt;android.widget.LinearLayout index="1" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/container_h2" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,358][1440,536]" displayed="true"&gt;
+                                &lt;android.widget.LinearLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/container_chips" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,358][1440,536]" displayed="true"&gt;
+                                  &lt;android.widget.LinearLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/container_poin" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[54,385][377,500]" displayed="true"&gt;
+                                    &lt;android.widget.ImageView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.ImageView" text="" resource-id="com.telkomsel.mytelkomsel:id/iv_dashboard_heart_poin" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[90,420][131,461]" displayed="true" /&gt;
+                                    &lt;android.widget.TextView index="1" package="com.telkomsel.mytelkomsel" class="android.widget.TextView" text=" POIN" resource-id="com.telkomsel.mytelkomsel:id/tv_count_poin" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[163,403][287,482]" displayed="true" /&gt;
+                                    &lt;android.widget.ImageView index="2" package="com.telkomsel.mytelkomsel" class="android.widget.ImageView" text="" resource-id="com.telkomsel.mytelkomsel:id/ic_chevron_poin" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[305,417][341,463]" displayed="true" /&gt;
+                                  &lt;/android.widget.LinearLayout&gt;
+                                &lt;/android.widget.LinearLayout&gt;
+                              &lt;/android.widget.LinearLayout&gt;
+                            &lt;/android.widget.LinearLayout&gt;
+                          &lt;/android.widget.RelativeLayout&gt;
+                          &lt;android.widget.ScrollView index="2" package="com.telkomsel.mytelkomsel" class="android.widget.ScrollView" text="" resource-id="com.telkomsel.mytelkomsel:id/nsv_homeScrollView" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,536][1440,2178]" displayed="true"&gt;
+                            &lt;android.widget.RelativeLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,536][1440,2178]" displayed="true"&gt;
+                              &lt;android.widget.LinearLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/main_content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,536][1440,2178]" displayed="true"&gt;
+                                &lt;android.widget.FrameLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,536][1440,1964]" displayed="true"&gt;
+                                  &lt;android.widget.FrameLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,536][1440,1964]" displayed="true"&gt;
+                                    &lt;android.widget.RelativeLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,536][1440,1964]" displayed="true"&gt;
+                                      &lt;android.widget.LinearLayout index="1" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/ll_containerError" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,536][1440,1814]" displayed="true"&gt;
+                                        &lt;androidx.cardview.widget.CardView index="0" package="com.telkomsel.mytelkomsel" class="androidx.cardview.widget.CardView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[59,595][1242,1755]" displayed="true"&gt;
+                                          &lt;android.widget.LinearLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[59,595][1242,1755]" displayed="true"&gt;
+                                            &lt;android.widget.LinearLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/cpn_error_section" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[59,595][1242,1755]" displayed="true"&gt;
+                                              &lt;android.widget.LinearLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/layout_parent" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[59,595][1242,1755]" displayed="true"&gt;
+                                                &lt;android.widget.TextView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.TextView" text="Unable to load" resource-id="com.telkomsel.mytelkomsel:id/tv_error_title" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[407,866][894,962]" displayed="true" /&gt;
+                                                &lt;android.widget.TextView index="1" package="com.telkomsel.mytelkomsel" class="android.widget.TextView" text="Sorry, there seems to be an error in our system loading your quota information" resource-id="com.telkomsel.mytelkomsel:id/tv_error_description" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[132,1016][1169,1261]" displayed="true" /&gt;
+                                                &lt;android.widget.Button index="2" package="com.telkomsel.mytelkomsel" class="android.widget.Button" text="Retry" resource-id="com.telkomsel.mytelkomsel:id/btn_error" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[470,1315][830,1483]" displayed="true" /&gt;
+                                              &lt;/android.widget.LinearLayout&gt;
+                                            &lt;/android.widget.LinearLayout&gt;
+                                          &lt;/android.widget.LinearLayout&gt;
+                                        &lt;/androidx.cardview.widget.CardView&gt;
+                                        &lt;androidx.cardview.widget.CardView index="1" package="com.telkomsel.mytelkomsel" class="androidx.cardview.widget.CardView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1301,595][1440,1755]" displayed="true"&gt;
+                                          &lt;android.widget.LinearLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1301,595][1440,1735]" displayed="true"&gt;
+                                            &lt;android.widget.LinearLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1301,595][1440,1177]" displayed="true"&gt;
+                                              &lt;android.view.View index="0" package="com.telkomsel.mytelkomsel" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1301,595][1440,1177]" displayed="true" /&gt;
+                                            &lt;/android.widget.LinearLayout&gt;
+                                            &lt;android.widget.LinearLayout index="1" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1301,1177][1440,1735]" displayed="true"&gt;
+                                              &lt;android.widget.LinearLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1301,1177][1440,1472]" displayed="true"&gt;
+                                                &lt;android.widget.RelativeLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1360,1268][1440,1395]" displayed="true" /&gt;
+                                              &lt;/android.widget.LinearLayout&gt;
+                                              &lt;android.widget.LinearLayout index="1" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1301,1472][1440,1735]" displayed="true"&gt;
+                                                &lt;android.widget.RelativeLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1360,1531][1440,1658]" displayed="true" /&gt;
+                                              &lt;/android.widget.LinearLayout&gt;
+                                            &lt;/android.widget.LinearLayout&gt;
+                                          &lt;/android.widget.LinearLayout&gt;
+                                        &lt;/androidx.cardview.widget.CardView&gt;
+                                      &lt;/android.widget.LinearLayout&gt;
+                                    &lt;/android.widget.RelativeLayout&gt;
+                                  &lt;/android.widget.FrameLayout&gt;
+                                &lt;/android.widget.FrameLayout&gt;
+                                &lt;android.widget.FrameLayout index="1" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,1964][1440,2178]" displayed="true"&gt;
+                                  &lt;android.widget.ScrollView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.ScrollView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="true" selected="false" bounds="[0,1964][1440,2178]" displayed="true"&gt;
+                                    &lt;android.widget.LinearLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/homeContentContainer" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,2055][1440,2178]" displayed="true"&gt;
+                                      &lt;android.widget.FrameLayout index="1" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,2055][1440,2178]" displayed="true"&gt;
+                                        &lt;android.widget.FrameLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,2055][1440,2178]" displayed="true"&gt;
+                                          &lt;android.widget.RelativeLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/rl_recommendedPackages" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,2055][1440,2178]" displayed="true"&gt;
+                                            &lt;android.widget.LinearLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.LinearLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/ll_containerError" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,2055][1440,2178]" displayed="true"&gt;
+                                              &lt;android.widget.RelativeLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/rl_section_error" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,2055][869,2147]" displayed="true"&gt;
+                                                &lt;android.widget.RelativeLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.RelativeLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/v_offerTitleSectionError" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[59,2101][869,2147]" displayed="true" /&gt;
+                                              &lt;/android.widget.RelativeLayout&gt;
+                                            &lt;/android.widget.LinearLayout&gt;
+                                          &lt;/android.widget.RelativeLayout&gt;
+                                        &lt;/android.widget.FrameLayout&gt;
+                                      &lt;/android.widget.FrameLayout&gt;
+                                    &lt;/android.widget.LinearLayout&gt;
+                                  &lt;/android.widget.ScrollView&gt;
+                                &lt;/android.widget.FrameLayout&gt;
+                              &lt;/android.widget.LinearLayout&gt;
+                            &lt;/android.widget.RelativeLayout&gt;
+                          &lt;/android.widget.ScrollView&gt;
+                        &lt;/android.widget.RelativeLayout&gt;
+                      &lt;/android.widget.ScrollView&gt;
+                    &lt;/android.view.ViewGroup&gt;
+                  &lt;/android.view.ViewGroup&gt;
+                &lt;/android.widget.FrameLayout&gt;
+              &lt;/android.widget.FrameLayout&gt;
+              &lt;android.widget.FrameLayout index="1" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" resource-id="com.telkomsel.mytelkomsel:id/bnv_main_bottom_nav" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,2178][1440,2392]" displayed="true"&gt;
+                &lt;android.view.ViewGroup index="0" package="com.telkomsel.mytelkomsel" class="android.view.ViewGroup" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,2178][1440,2392]" displayed="true"&gt;
+                  &lt;android.widget.FrameLayout index="0" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" content-desc="Home" resource-id="com.telkomsel.mytelkomsel:id/navigation_home" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="true" bounds="[0,2178][288,2392]" displayed="true"&gt;
+                    &lt;android.widget.ImageView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.ImageView" text="" resource-id="com.telkomsel.mytelkomsel:id/icon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="true" bounds="[107,2214][180,2287]" displayed="true" /&gt;
+                    &lt;android.view.ViewGroup index="1" package="com.telkomsel.mytelkomsel" class="android.view.ViewGroup" text="" resource-id="com.telkomsel.mytelkomsel:id/labelGroup" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="true" bounds="[82,2311][206,2392]" displayed="true"&gt;
+                      &lt;android.widget.TextView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.TextView" text="Home" resource-id="com.telkomsel.mytelkomsel:id/largeLabel" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="true" bounds="[82,2311][206,2382]" displayed="true" /&gt;
+                    &lt;/android.view.ViewGroup&gt;
+                  &lt;/android.widget.FrameLayout&gt;
+                  &lt;android.widget.FrameLayout index="1" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" content-desc="POIN" resource-id="com.telkomsel.mytelkomsel:id/navigation_reward" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[288,2178][576,2392]" displayed="true"&gt;
+                    &lt;android.widget.ImageView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.ImageView" text="" resource-id="com.telkomsel.mytelkomsel:id/icon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[395,2214][468,2287]" displayed="true" /&gt;
+                    &lt;android.view.ViewGroup index="1" package="com.telkomsel.mytelkomsel" class="android.view.ViewGroup" text="" resource-id="com.telkomsel.mytelkomsel:id/labelGroup" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[381,2311][482,2392]" displayed="true"&gt;
+                      &lt;android.widget.TextView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.TextView" text="POIN" resource-id="com.telkomsel.mytelkomsel:id/smallLabel" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[381,2311][482,2382]" displayed="true" /&gt;
+                    &lt;/android.view.ViewGroup&gt;
+                  &lt;/android.widget.FrameLayout&gt;
+                  &lt;android.widget.FrameLayout index="2" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" content-desc="Shop" resource-id="com.telkomsel.mytelkomsel:id/navigation_shop" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[576,2178][864,2392]" displayed="true"&gt;
+                    &lt;android.widget.ImageView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.ImageView" text="" resource-id="com.telkomsel.mytelkomsel:id/icon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[683,2214][756,2287]" displayed="true" /&gt;
+                    &lt;android.view.ViewGroup index="1" package="com.telkomsel.mytelkomsel" class="android.view.ViewGroup" text="" resource-id="com.telkomsel.mytelkomsel:id/labelGroup" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[666,2311][773,2392]" displayed="true"&gt;
+                      &lt;android.widget.TextView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.TextView" text="Shop" resource-id="com.telkomsel.mytelkomsel:id/smallLabel" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[666,2311][773,2382]" displayed="true" /&gt;
+                    &lt;/android.view.ViewGroup&gt;
+                  &lt;/android.widget.FrameLayout&gt;
+                  &lt;android.widget.FrameLayout index="3" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" content-desc="Explore" resource-id="com.telkomsel.mytelkomsel:id/navigation_explore" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[864,2178][1152,2392]" displayed="true"&gt;
+                    &lt;android.widget.ImageView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.ImageView" text="" resource-id="com.telkomsel.mytelkomsel:id/icon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[971,2214][1044,2287]" displayed="true" /&gt;
+                    &lt;android.view.ViewGroup index="1" package="com.telkomsel.mytelkomsel" class="android.view.ViewGroup" text="" resource-id="com.telkomsel.mytelkomsel:id/labelGroup" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[930,2311][1085,2392]" displayed="true"&gt;
+                      &lt;android.widget.TextView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.TextView" text="Explore" resource-id="com.telkomsel.mytelkomsel:id/smallLabel" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[930,2311][1085,2382]" displayed="true" /&gt;
+                    &lt;/android.view.ViewGroup&gt;
+                  &lt;/android.widget.FrameLayout&gt;
+                  &lt;android.widget.FrameLayout index="4" package="com.telkomsel.mytelkomsel" class="android.widget.FrameLayout" text="" content-desc="Menu" resource-id="com.telkomsel.mytelkomsel:id/navigation_account" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1152,2178][1440,2392]" displayed="true"&gt;
+                    &lt;android.widget.ImageView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.ImageView" text="" resource-id="com.telkomsel.mytelkomsel:id/icon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1259,2214][1332,2287]" displayed="true" /&gt;
+                    &lt;android.view.ViewGroup index="1" package="com.telkomsel.mytelkomsel" class="android.view.ViewGroup" text="" resource-id="com.telkomsel.mytelkomsel:id/labelGroup" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1236,2311][1355,2392]" displayed="true"&gt;
+                      &lt;android.widget.TextView index="0" package="com.telkomsel.mytelkomsel" class="android.widget.TextView" text="Menu" resource-id="com.telkomsel.mytelkomsel:id/smallLabel" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1236,2311][1355,2382]" displayed="true" /&gt;
+                    &lt;/android.view.ViewGroup&gt;
+                  &lt;/android.widget.FrameLayout&gt;
+                &lt;/android.view.ViewGroup&gt;
+              &lt;/android.widget.FrameLayout&gt;
+            &lt;/android.widget.RelativeLayout&gt;
+          &lt;/android.widget.FrameLayout&gt;
+        &lt;/android.widget.LinearLayout&gt;
+      &lt;/android.widget.FrameLayout&gt;
+    &lt;/android.widget.LinearLayout&gt;
+  &lt;/android.widget.FrameLayout&gt;
+&lt;/hierarchy&gt;</msg>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 12:48:11.840" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-10.png"&gt;&lt;img src="appium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 12:48:10.774" endtime="20211013 12:48:11.842"/>
+</kw>
+<msg timestamp="20211013 12:48:11.845" level="FAIL">Element 'com.telkomsel.mytelkomsel:id/tv_login_language' did not appear in 1 minute 30 seconds</msg>
+<status status="FAIL" starttime="20211013 12:46:39.955" endtime="20211013 12:48:11.845"/>
+</kw>
+<kw name="Scroll Up If Need" library="CommonKeyWord">
+<status status="NOT RUN" starttime="20211013 12:48:11.845" endtime="20211013 12:48:11.846"/>
+</kw>
+<kw name="Scroll Up If Need" library="CommonKeyWord">
+<status status="NOT RUN" starttime="20211013 12:48:11.846" endtime="20211013 12:48:11.846"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${WCMS["login_page_title"]}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="NOT RUN" starttime="20211013 12:48:11.846" endtime="20211013 12:48:11.846"/>
+</kw>
+<kw name="Login With Msisdn Number" library="LoginCommonKeyWord">
+<arg>${TW_Phonenumber}</arg>
+<status status="NOT RUN" starttime="20211013 12:48:11.847" endtime="20211013 12:48:11.847"/>
+</kw>
+<kw name="Click Text" library="AppiumLibrary">
+<arg>${WCMS["login_page_other_methods_title"]}</arg>
+<doc>Click text identified by ``text``.</doc>
+<status status="NOT RUN" starttime="20211013 12:48:11.847" endtime="20211013 12:48:11.847"/>
+</kw>
+<kw name="Verify Other Login Page" library="LoginCommonKeyWord">
+<status status="NOT RUN" starttime="20211013 12:48:11.848" endtime="20211013 12:48:11.848"/>
+</kw>
+<kw name="Click Text" library="AppiumLibrary">
+<arg>${WCMS["login_page_other_methods_twitter_text"]}</arg>
+<doc>Click text identified by ``text``.</doc>
+<status status="NOT RUN" starttime="20211013 12:48:11.848" endtime="20211013 12:48:11.849"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${TW_Page_Header}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="NOT RUN" starttime="20211013 12:48:11.849" endtime="20211013 12:48:11.849"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${TW_fill_email}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="NOT RUN" starttime="20211013 12:48:11.850" endtime="20211013 12:48:11.850"/>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${TW_fill_email}</arg>
+<arg>${account}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="NOT RUN" starttime="20211013 12:48:11.850" endtime="20211013 12:48:11.851"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${TW_fill_pw}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="NOT RUN" starttime="20211013 12:48:11.852" endtime="20211013 12:48:11.852"/>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${TW_fill_pw}</arg>
+<arg>${password}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="NOT RUN" starttime="20211013 12:48:11.853" endtime="20211013 12:48:11.853"/>
+</kw>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>500</arg>
+<arg>400</arg>
+<arg>500</arg>
+<arg>200</arg>
+<arg>1000</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="NOT RUN" starttime="20211013 12:48:11.854" endtime="20211013 12:48:11.854"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${TW_Login_btn1}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="NOT RUN" starttime="20211013 12:48:11.855" endtime="20211013 12:48:11.855"/>
+</kw>
+<kw name="Click Text" library="AppiumLibrary">
+<arg>${TW_Login_btn1}</arg>
+<doc>Click text identified by ``text``.</doc>
+<status status="NOT RUN" starttime="20211013 12:48:11.855" endtime="20211013 12:48:11.855"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${NeedVerify}</var>
+<arg>Wait until page contains</arg>
+<arg>${TW_Page_Verify_Header}</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" starttime="20211013 12:48:11.856" endtime="20211013 12:48:11.856"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${NeedVerify}==True</arg>
+<arg>Verify Twitter Safe Account</arg>
+<arg>${phoneNumber}</arg>
+<arg>${email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20211013 12:48:11.857" endtime="20211013 12:48:11.858"/>
+</kw>
+<kw name="Check reminder verify your email" library="LoginCommonKeyWord">
+<status status="NOT RUN" starttime="20211013 12:48:11.858" endtime="20211013 12:48:11.858"/>
+</kw>
+<kw name="Notify Home Page" library="CommonKeyWord">
+<status status="NOT RUN" starttime="20211013 12:48:11.859" endtime="20211013 12:48:11.859"/>
+</kw>
+<status status="FAIL" starttime="20211013 12:46:39.955" endtime="20211013 12:48:11.860"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${LinkAccount_Phonenumber}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="NOT RUN" starttime="20211013 12:48:11.860" endtime="20211013 12:48:11.860"/>
+</kw>
+<status status="FAIL" starttime="20211013 12:46:33.932" endtime="20211013 12:48:11.862"/>
+</kw>
+<status status="FAIL" starttime="20211013 12:46:33.931" endtime="20211013 12:48:11.863"/>
+</kw>
+<status status="FAIL" starttime="20211013 12:46:02.986" endtime="20211013 12:48:11.864"/>
+</kw>
+<kw name="Check Tutup popup" library="CommonKeyWord">
+<status status="NOT RUN" starttime="20211013 12:48:11.865" endtime="20211013 12:48:11.865"/>
+</kw>
+<kw name="Check Reminder" library="LoginCommonKeyWord">
+<status status="NOT RUN" starttime="20211013 12:48:11.866" endtime="20211013 12:48:11.866"/>
+</kw>
+<kw name="Check Permission Location Display" library="CommonKeyWord">
+<status status="NOT RUN" starttime="20211013 12:48:11.866" endtime="20211013 12:48:11.866"/>
+</kw>
+<status status="FAIL" starttime="20211013 12:43:51.729" endtime="20211013 12:48:11.867"/>
+</kw>
+<test id="s1-t1" name="Verify count card Package Populer Destination">
+<tag>Roaming0</tag>
+<status status="FAIL" starttime="20211013 12:48:11.868" endtime="20211013 12:48:11.872">Parent suite setup failed:
+Element 'com.telkomsel.mytelkomsel:id/tv_login_language' did not appear in 1 minute 30 seconds</status>
+</test>
+<test id="s1-t2" name="Verifying Package Populer Destination">
+<doc>Verify Package Detail, Bottom Dialog, and See Details in Payment Method
+|TC Android|TC121 - TC125 &amp;&amp; TC128 - TC132|
+|TC Type|Positive Case|</doc>
+<tag>Roaming</tag>
+<status status="FAIL" starttime="20211013 12:48:11.875" endtime="20211013 12:48:11.876">Parent suite setup failed:
+Element 'com.telkomsel.mytelkomsel:id/tv_login_language' did not appear in 1 minute 30 seconds</status>
+</test>
+<test id="s1-t3" name="Verifying Package Combined Destination">
+<status status="FAIL" starttime="20211013 12:48:11.878" endtime="20211013 12:48:11.886">Parent suite setup failed:
+Element 'com.telkomsel.mytelkomsel:id/tv_login_language' did not appear in 1 minute 30 seconds</status>
+</test>
+<test id="s1-t4" name="Verify Roaming Package emty">
+<status status="FAIL" starttime="20211013 12:48:11.887" endtime="20211013 12:48:11.888">Parent suite setup failed:
+Element 'com.telkomsel.mytelkomsel:id/tv_login_language' did not appear in 1 minute 30 seconds</status>
+</test>
+<kw name="Close Application" library="AppiumLibrary" type="TEARDOWN">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" starttime="20211013 12:48:11.890" endtime="20211013 12:48:13.204"/>
+</kw>
+<status status="FAIL" starttime="20211013 12:43:49.719" endtime="20211013 12:48:13.204">Suite setup failed:
+Element 'com.telkomsel.mytelkomsel:id/tv_login_language' did not appear in 1 minute 30 seconds</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Roaming</stat>
+<stat pass="0" fail="1" skip="0">Roaming0</stat>
+</tag>
+<suite>
+<stat pass="0" fail="4" skip="0" id="s1" name="RoamingPackage">RoamingPackage</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

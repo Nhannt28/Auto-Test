@@ -1,0 +1,119 @@
+1. Mac Big Sur
+2. install Xcode
+3. install Android studio
+4. /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+5. brew install jenkins-lts
+6. Brew install python3 /// brew install python@3.7
+Version 3.9
+7. Pip3 install robotframework-appiumlibrary --user
+8. > brew install node      # get node.js
+9.	> npm install -g appium  # get Appium
+10.	> npm install -g Appium-doctor # get Appium Doctor to check system ready
+11.	> npm install wd         # get appium client
+12.	> appium &               # start appium
+13. Appium-doctor
+14.  pip3 install requests
+pip install Pillow
+npm i -g mjpeg-consumer
+Start Jenkins:
+Jenkins-lts
+Brew services start Jenkins-its
+pw: 686b10ca77d0439dba0ffaec48b9d671
+0.0.0.0:8080
+Admin/123456
+
+Install robot framework plugin
+chmod -R a+rw /Users/phamhaituan/.jenkins/workspace/
+pip3 install jira
+
+
+
+In Terminal:
+
+nano ~/.bash_profile 
+Add lines:
+export JAVA_HOME=$(/usr/libexec/java_home)
+export ANDROID_HOME=/YOUR_PATH_TO/android-sdk
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/tools:$PATH
+Check it worked:
+
+source ~/.bash_profile
+echo $ANDROID_HOME
+
+
+
+// Configuration run inspector iOS
+
+{     
+      "platformName": "iOS",
+      "platformVersion":   "14.3",
+      "app":   "/Users/phamhaituan/Documents/PROJECTS/TelkomselAutomationTest/Phincon-AutoTest/SourceCode/PhinconAutoTest/app/MyTelkomsel.app",
+      "deviceName": "iPhone 11 Pro Max", 
+      "automationName":   "XCUITest"
+   }  
+
+
+   {     
+      "platformName":   "Android",     
+      "platformVersion":   "10",    
+      "app":   "/Users/phamhaituan/Documents/PROJECTS/TelkomselAutomationTest/Phincon-AutoTest/SourceCode/PhinconAutoTest/app/my-telkomsel.apk",     
+      "automationName":   "UiAutomator2"   
+   }   
+
+===========>Jira<=======================
+1. Need account have permission create api tokens
+2. Create token from :https://id.atlassian.com/manage-profile/security/api-tokens
+
+
+========>Config Jenkins<=============
+[Parameter]
+DeviceName	sm_android_API10
+OutputFolder	./report/
+OutputFile	./report/sm_iOS_14.xml
+Distribution_env  preprod 
+App_version       5.12.0
+[Git]: connect to Git resposite 
+
+[Execute Shell:]
+
+#!/bin/sh
+projectFolder="./"
+tc=$projectFolder"testcases"
+dt=`date '+%d%m%Y_%H%M%S'`
+report=$projectFolder"report/$dt"
+mkdir $report
+port=4725
+lang=en
+
+TAG=Inbox
+
+i=$DeviceName
+output=$report"/$i/"
+mkdir $output
+output=$OutputFolder
+
+fail=fail
+
+# Start Server
+osascript -e "tell application \"Terminal\" to do script \"appium --address 0.0.0.0 --port $port\""
+
+sleep 5
+# Start execute test
+robot --variable device:$i --variable port:$port --variable lang:$lang --variable Distribution_env:preprod --variable App_version:5.12.0  --output $output$i --log $output$i --include $TAG $tc
+#robot --variable device:sm_android_API10 --variable port:4723 --variable lang:en --variable distribution:preprod --variable app_version:5.12.0 --output report/output --log report/output --include SendGift  ./testcases/Regression/04_GiftingJourney/01_GiftingJourney.robot
+
+   
+
+exit 0
+
+[Execute Shell 2:]
+
+echo 'Start push bug Jira'
+jira=$projectFolder"execute/executeJira.py"
+xmlfile=$output$i.xml
+
+python3 $jira $OutputFolder $xmlfile $projectFolder$configFile $DeviceName $Distribution_env $App_version 
+#python3 execute/executeJira.py ./report/ ./report/output.xml ./resources/devices/sm_android_API10.robot sm_android_API10 preprod 5.12.0
+echo 'Done push bug Jira'
+

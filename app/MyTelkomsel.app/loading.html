@@ -1,0 +1,136 @@
+<html>
+    <head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=0.90, minimum-scale=0.90, maximum-scale=0.90, width=device-width">
+    </head>
+<style>
+   .child-loaderV2__spinnercontainer {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9998;
+    width: 100%;
+    }
+
+   .platform-ios .child-loaderV2__spinnercontainer {
+    top: 0;
+    }
+
+   .child-loaderV2__hide-overlay {
+    background-color: transparent;
+    }
+
+   .child-loaderV2__full-view {
+    top: 0;
+    }
+
+   .child-loaderV2__long-view {
+    height: 130%;
+    }
+
+   .child-loaderV2__long-view .child-loaderV2__spinnerV2 {
+    top: 30%;
+    }
+
+   .child-loaderV2__spinnerV2 {
+    position: relative;
+    margin: auto;
+    box-sizing: border-box;
+    background-clip: padding-box;
+    width: 60px;
+    top: 50%;
+    height: 60px;
+    border-radius: 60px;
+    border: 24px solid rgba(255, 255, 255, 0);
+    -webkit-mask: linear-gradient(white, rgba(255, 255, 255, 0) 100%);
+    transform-origin: 50% 60%;
+    transform: perspective(60px) rotateX(0deg);
+    animation: spinner-wiggle 1s infinite;
+    }
+
+   .child-loaderV2__spinnerV2:before, .child-loaderV2__spinnerV2:after {
+    content: "";
+    position: absolute;
+    margin: -24px;
+    box-sizing: inherit;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    opacity: 1;
+    border: inherit;
+    border-color: transparent;
+    animation: spinner-spin 1s cubic-bezier(0.75, 0.15, 0.15, 0.85) infinite, spinner-fade 1s linear infinite;
+    }
+
+   .child-loaderV2__spinnerV2:before {
+       border-top-color: #fffafa;
+    }
+
+    .child-loaderV2__spinnerV2:after {
+    border-top-color: #e5131d;
+    animation-delay: 0.8s;
+    }
+
+    @keyframes spinner-wiggle {
+    }
+
+   @keyframes spinner-spin {
+    100% {
+    transform: rotate(360deg);
+    }
+    }
+
+   @keyframes spinner-fade {
+    10% {
+    opacity: 1;
+    }
+
+   30% {
+    opacity: 1;
+    }
+
+   50% {
+    opacity: .5;
+    }
+
+   70% {
+    opacity: 1;
+    }
+
+   100% {
+    opacity: 1;
+    }
+    }
+
+   .day-time .child-loaderV2__spinnercontainer {
+    background-color: #EFEFEF;
+    }
+
+   .day-time .child-loaderV2__hide-overlay {
+    background-color: rgba(239, 239, 239, 0.5);
+    }
+
+   .night-time .child-loaderV2__spinnercontainer {
+    background-color: #0F2237;
+    }
+
+   .night-time .child-loaderV2__hide-overlay {
+    background-color: rgba(15, 34, 55, 0.1);
+    }
+
+   .night-time .child-loaderV2__spinnerV2:before {
+    border-top-color: #fff;
+    }
+
+   .night-time .child-loaderV2__spinnerV2:after {
+    border-top-color: #e5131d;
+    }
+  </style>
+<body>
+<div>
+  <div class="child-loaderV2__spinnerV2"></div>
+</div>
+</body>
+</html>

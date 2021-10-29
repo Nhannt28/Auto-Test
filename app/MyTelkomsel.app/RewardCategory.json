@@ -1,0 +1,102 @@
+{
+  "data": {
+    "defaultValues": [
+        {
+            "name": "telco",
+          "title": "rewards-page.explore-section.dine.title",
+          "route": "/loyalty-rewards-list/category=dine" ,
+          "icon": "rewards_dine",
+          "order": 3
+        },
+        {
+            "name": "telco",
+          "title": "rewards-page.explore-section.entertainment.title",
+          "route": "/loyalty-rewards-list/category=entertainment" ,
+          "icon": "rewards_entertainment",
+          "order": 4
+        },
+        {
+            "name": "telco",
+          "title": "rewards-page.explore-section.healthbeauty.title",
+          "route": "/loyalty-rewards-list/category=health+and+beauty" ,
+          "icon": "rewards_healthbeauty",
+          "order": 5
+        }
+    ],
+    "group": [
+      {
+        "title": "wcms_key_utama",
+        "menus": [
+          {
+            "name": "telco",
+            "title": "rewards-page.explore-section.telco.title",
+            "route": "/loyalty-rewards-list/category=telco",
+            "icon": "rewards_telco",
+            "order": 2
+          },
+          {
+            "name": "shop",
+            "title": "rewards-page.explore-section.shop.title",
+            "route": "/loyalty-rewards-list/category=shop",
+            "icon": "rewards_shop",
+            "order": 3
+          },
+          {
+            "name": "healt_and_beauty",
+            "title": "rewards-page.explore-section.healthbeauty.title",
+            "route": "/loyalty-rewards-list/category=healthbeauty",
+            "icon": "rewards_healthbeauty",
+            "order": 4
+          },
+          {
+            "name": "luckydraw",
+            "title": "rewards-page.explore-section.lucky.title",
+            "route": "/loyalty-rewards-list/category=luckydraw",
+            "icon": "rewards_lucky",
+            "order": 5
+          },
+          {
+            "name": "entertainment",
+            "title": "rewards-page.explore-section.entertainment.title",
+            "route": "/loyalty-rewards-list/category=entertainment",
+            "icon": "rewards_entertainment",
+            "order": 6
+          },
+          {
+            "name": "dine",
+            "title": "rewards-page.explore-section.dine.title",
+            "route": "/loyalty-rewards-list/category=dine",
+            "icon": "rewards_dine",
+            "order": 7
+          },
+          {
+            "name": "sports",
+            "title": "rewards-page.explore-section.sport.title",
+            "route": "/loyalty-rewards-list/category=sporteducation",
+            "icon": "rewards_sport",
+            "order": 8
+          },
+          {
+            "name": "travel",
+            "title": "rewards-page.explore-section.travel.title",
+            "route": "/loyalty-rewards-list/category=travel",
+            "icon": "rewards_travel",
+            "order": 9
+          }
+        ]
+      },
+      {
+        "title": "%wcms_key_program%",
+        "menus": [
+          {
+            "name": "donation",
+            "title": "rewards-page.explore-section.donation.title",
+            "route": "/loyalty-rewards-list/category=donation",
+            "icon": "rewards_donation",
+            "order": 1
+          }
+        ]
+      }
+    ]
+  }
+}

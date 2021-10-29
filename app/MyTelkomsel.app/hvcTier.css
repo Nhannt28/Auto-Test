@@ -1,0 +1,9 @@
+li {
+position: relative;
+padding: 10px 0 10px 40px;
+list-style: none;
+background-image: url('BlackHeart.png');
+background-repeat: no-repeat;
+background-position: left top 2px;
+background-size: 30px;
+}

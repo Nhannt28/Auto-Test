@@ -1,0 +1,123 @@
+{
+  "status": "00000",
+  "message": "Success",
+  "data": {
+    "consecutiveStamp": "4",
+    "cumulativeStamp": "30",
+    "lastCheckIn": "20210108",
+    "lastCheckInText": "",
+    "isShare": true,
+    "isCampaignActive": true,
+    "campaignActiveImage": "dailylogin_title_banner",
+    "campaignDescription": "dailylogin_campaign_descript_a",
+    "currentCampaign": "23 Nov - 31 Des 2020",
+    "claimMinimumCredit": 10,
+    "remainingTimeStamp": {
+      "isTimeStamp": false,
+      "timeStamp": "",
+      "day": "38 hari lagi",
+      "color": "#fffff"
+    },
+    "alertBanner": null,
+    "maximumCumulativeDays": "36",
+    "rewards": {
+      "consecutiveLogin": [
+        {
+          "day": 1,
+          "text": "",
+          "icon": "",
+          "isChecked": true
+        },
+        {
+          "day": 2,
+          "text": "",
+          "icon": "",
+          "isChecked": true
+        },
+        {
+          "day": 3,
+          "text": "",
+          "icon": "",
+          "isChecked": true
+        },
+        {
+          "day": 4,
+          "text": "Kuota",
+          "icon": "internet",
+          "desc": "Check-in 4 hari berturut-turut untuk mendapatkan hadiah ini. Anda akan dikenakan biaya Rp 10 untuk klaim hadiah ini. Tersedia untuk 450.000 pemenang pertama.",
+          "isChecked": true
+        },
+        {
+          "day": 5,
+          "text": "",
+          "icon": "",
+          "isChecked": false
+        },
+        {
+          "day": 6,
+          "text": "",
+          "icon": "",
+          "isChecked": false
+        },
+        {
+          "day": 7,
+          "text": "NSP",
+          "icon": "sms",
+          "desc": "Check-in 4 hari berturut-turut untuk mendapatkan hadiah ini. Anda akan dikenakan biaya Rp 10 untuk klaim hadiah ini. Tersedia untuk 450.000 pemenang pertama.",
+          "isChecked": false
+        }
+      ],
+      "cumulativeLogin": [
+        {
+          "order": 1,
+          "keyword": "10poinkeyword",
+          "days": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "title": "10 Poin Telkomsel",
+          "image_url": "http://www.telkomsel.com/media/tpoin/img/image_merchant/large/F44232670_Image-default.png",
+          "stock": "Semua pemenang",
+          "stockColor": "#808080",
+          "status": "CLAIMED"
+        },
+        {
+          "order": 2,
+          "keyword": "200mbkeyword",
+          "days": [
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"
+          ],
+          "title": "Internet 200 MB/ 7 Hari",
+          "image_url": "http://www.telkomsel.com/media/tpoin/img/image_merchant/large/F279349021_Image-default.png",
+          "stock": "Sisa 55 hadiah",
+          "stockColor": "#ffa500",
+          "status": "UNCLAIMED"
+        },
+        {
+          "order": 3,
+          "keyword": "200mbkeyword",
+          "days": [
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"
+          ],
+          "title": "Internet 500 MB/ 7 HariInternet 500 MB/ 7 Hari",
+          "image_url": "http://www.telkomsel.com/media/tpoin/img/image_merchant/large/F-873705168_Image-default.png",
+          "stock": "Stok habis",
+          "stockColor": "#FF0000",
+          "status": "NOT ELIGIBLE"
+        }
+      ]
+    }
+  },
+  "transaction_id": "A301200928120139029143560"
+}

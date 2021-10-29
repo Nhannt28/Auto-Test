@@ -1,0 +1,11 @@
+{
+    "data":{
+        "items":[
+            {"code":"HOME-INFO","order":"1","height":-1},
+            {"code":"HOME-LP","order":"2","height":-1},
+            {"code":"HOME-PO","order":"3","height":-1},
+            {"code":"HOME-SM","order":"4","height":-1},
+            {"code":"HOME-FST","order":"5","height":-1}
+        ]
+    }
+}

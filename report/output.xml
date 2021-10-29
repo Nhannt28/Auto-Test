@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0 (Python 3.7.4 on win32)" generated="20210805 11:58:57.636" rpa="false" schemaversion="2">
+<suite id="s1" name="02 PaymentFinTech" source="E:\TelkomselAutotTest_VPN\testcases\Regression\09_PaymentFinTech\02_PaymentFinTech.robot">
+<kw name="Check PreConditional" type="SETUP">
+<tag>Revamp Payment Method</tag>
+<doc>Pre Step to make sure user already login, check premission HomePage appear (TEST DOCUMENT)
+|*TC IDs*|iOS TC054 - Android TC1194|
+|*TC Type*| Positive Case|</doc>
+<kw name="Reopen App" library="config">
+<arg>${EMPTY}</arg>
+<kw name="Open Application" library="AppiumLibrary">
+<arg>${HOST}:${port}/wd/hub</arg>
+<arg>automationName=${AUTOMATION_NAME}</arg>
+<arg>app=${APP}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>platformVersion=${PLATFORM_VERSION}</arg>
+<arg>appPackage=${APP_PACKAGE}</arg>
+<arg>appActivity=${Activity_Splash}</arg>
+<arg>deviceName=${Device_Name}</arg>
+<arg>autoGrantPermissions=true</arg>
+<arg>noReset=true</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<status status="PASS" starttime="20210805 11:58:59.773" endtime="20210805 11:59:11.603"/>
+</kw>
+<status status="PASS" starttime="20210805 11:58:59.770" endtime="20210805 11:59:11.603"/>
+</kw>
+<kw name="Check Reminder" library="LoginCommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Reminder}</var>
+<arg>Wait until page contains</arg>
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20210805 11:59:42.562" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210805 11:59:41.830" endtime="20210805 11:59:42.562"/>
+</kw>
+<msg timestamp="20210805 11:59:42.563" level="FAIL">Text 'Remind me later' did not appear in 30 seconds</msg>
+<status status="FAIL" starttime="20210805 11:59:11.604" endtime="20210805 11:59:42.563"/>
+</kw>
+<msg timestamp="20210805 11:59:42.563" level="INFO">${Reminder} = False</msg>
+<status status="PASS" starttime="20210805 11:59:11.604" endtime="20210805 11:59:42.563"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Reminder}==True</arg>
+<arg>Click Text</arg>
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20210805 11:59:42.563" endtime="20210805 11:59:42.564"/>
+</kw>
+<status status="PASS" starttime="20210805 11:59:11.603" endtime="20210805 11:59:42.564"/>
+</kw>
+<kw name="Check Tutup popup" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Tutup}</var>
+<arg>Wait until page contains element</arg>
+<arg>${Tutup_Btn}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${Tutup_Btn}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20210805 11:59:48.471" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-2.png"&gt;&lt;img src="appium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210805 11:59:47.821" endtime="20210805 11:59:48.471"/>
+</kw>
+<msg timestamp="20210805 11:59:48.472" level="FAIL">Element 'com.telkomsel.mytelkomsel:id/insider_adjacent1' did not appear in 5 seconds</msg>
+<status status="FAIL" starttime="20210805 11:59:42.565" endtime="20210805 11:59:48.472"/>
+</kw>
+<msg timestamp="20210805 11:59:48.472" level="INFO">${Tutup} = False</msg>
+<status status="PASS" starttime="20210805 11:59:42.565" endtime="20210805 11:59:48.472"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Tutup}==True</arg>
+<arg>Click Element</arg>
+<arg>${Tutup_Btn}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20210805 11:59:48.472" endtime="20210805 11:59:48.472"/>
+</kw>
+<status status="PASS" starttime="20210805 11:59:42.564" endtime="20210805 11:59:48.472"/>
+</kw>
+<kw name="Check Logined Default User" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Result}</var>
+<arg>Wait until page contains</arg>
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 11:59:48.473" endtime="20210805 11:59:49.303"/>
+</kw>
+<msg timestamp="20210805 11:59:49.303" level="INFO">${Result} = True</msg>
+<status status="PASS" starttime="20210805 11:59:48.473" endtime="20210805 11:59:49.303"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Result}==False</arg>
+<arg>Check First Time Install App And Login</arg>
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>${TW_Phonenumber}</arg>
+<arg>${TW_Account}</arg>
+<arg>${TW_Password}</arg>
+<arg>${TW_Email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20210805 11:59:49.303" endtime="20210805 11:59:49.304"/>
+</kw>
+<status status="PASS" starttime="20210805 11:59:48.473" endtime="20210805 11:59:49.304"/>
+</kw>
+<kw name="Check Reminder" library="LoginCommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Reminder}</var>
+<arg>Wait until page contains</arg>
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20210805 12:00:20.466" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-3.png"&gt;&lt;img src="appium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210805 12:00:19.799" endtime="20210805 12:00:20.466"/>
+</kw>
+<msg timestamp="20210805 12:00:20.467" level="FAIL">Text 'Remind me later' did not appear in 30 seconds</msg>
+<status status="FAIL" starttime="20210805 11:59:49.305" endtime="20210805 12:00:20.467"/>
+</kw>
+<msg timestamp="20210805 12:00:20.467" level="INFO">${Reminder} = False</msg>
+<status status="PASS" starttime="20210805 11:59:49.305" endtime="20210805 12:00:20.467"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Reminder}==True</arg>
+<arg>Click Text</arg>
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20210805 12:00:20.467" endtime="20210805 12:00:20.468"/>
+</kw>
+<status status="PASS" starttime="20210805 11:59:49.304" endtime="20210805 12:00:20.468"/>
+</kw>
+<kw name="Check Tutup popup" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Tutup}</var>
+<arg>Wait until page contains element</arg>
+<arg>${Tutup_Btn}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${Tutup_Btn}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20210805 12:00:26.296" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-4.png"&gt;&lt;img src="appium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210805 12:00:25.614" endtime="20210805 12:00:26.296"/>
+</kw>
+<msg timestamp="20210805 12:00:26.297" level="FAIL">Element 'com.telkomsel.mytelkomsel:id/insider_adjacent1' did not appear in 5 seconds</msg>
+<status status="FAIL" starttime="20210805 12:00:20.468" endtime="20210805 12:00:26.297"/>
+</kw>
+<msg timestamp="20210805 12:00:26.297" level="INFO">${Tutup} = False</msg>
+<status status="PASS" starttime="20210805 12:00:20.468" endtime="20210805 12:00:26.297"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Tutup}==True</arg>
+<arg>Click Element</arg>
+<arg>${Tutup_Btn}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20210805 12:00:26.297" endtime="20210805 12:00:26.298"/>
+</kw>
+<status status="PASS" starttime="20210805 12:00:20.468" endtime="20210805 12:00:26.298"/>
+</kw>
+<kw name="Check Permission Location Display" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Result}</var>
+<arg>Wait until page contains</arg>
+<arg>${Location_Permission}</arg>
+<arg>timeout=15</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${Location_Permission}</arg>
+<arg>timeout=15</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20210805 12:00:42.326" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-5.png"&gt;&lt;img src="appium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210805 12:00:41.676" endtime="20210805 12:00:42.327"/>
+</kw>
+<msg timestamp="20210805 12:00:42.328" level="FAIL">Text 'Allow MT-Native-Preprod to access this device's location?' did not appear in 15 seconds</msg>
+<status status="FAIL" starttime="20210805 12:00:26.299" endtime="20210805 12:00:42.328"/>
+</kw>
+<msg timestamp="20210805 12:00:42.328" level="INFO">${Result} = False</msg>
+<status status="PASS" starttime="20210805 12:00:26.298" endtime="20210805 12:00:42.328"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Result}==True</arg>
+<arg>Click Element</arg>
+<arg>${Location_Permission_Allow}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20210805 12:00:42.328" endtime="20210805 12:00:42.329"/>
+</kw>
+<status status="PASS" starttime="20210805 12:00:26.298" endtime="20210805 12:00:42.329"/>
+</kw>
+<kw name="Check VOC Dispaly And Skip" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Result}</var>
+<arg>Wait until page contains</arg>
+<arg>${WCMS["voc_scale_rating_default"]}</arg>
+<arg>timeout=20</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${WCMS["voc_scale_rating_default"]}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20210805 12:01:03.537" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-6.png"&gt;&lt;img src="appium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210805 12:01:02.838" endtime="20210805 12:01:03.538"/>
+</kw>
+<msg timestamp="20210805 12:01:03.538" level="FAIL">Text 'Please fill the star rating' did not appear in 20 seconds</msg>
+<status status="FAIL" starttime="20210805 12:00:42.330" endtime="20210805 12:01:03.538"/>
+</kw>
+<msg timestamp="20210805 12:01:03.539" level="INFO">${Result} = False</msg>
+<status status="PASS" starttime="20210805 12:00:42.329" endtime="20210805 12:01:03.539"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Result}==True</arg>
+<arg>Click Element</arg>
+<arg>${VOC_Skip}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20210805 12:01:03.539" endtime="20210805 12:01:03.540"/>
+</kw>
+<status status="PASS" starttime="20210805 12:00:42.329" endtime="20210805 12:01:03.540"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210805 12:01:13.555" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20210805 12:01:03.540" endtime="20210805 12:01:13.555"/>
+</kw>
+<status status="PASS" starttime="20210805 11:58:59.769" endtime="20210805 12:01:13.555"/>
+</kw>
+<test id="s1-t1" name="Redirect to term and condition page gopay after selected Denom credit">
+<kw name="Launch Application" library="AppiumLibrary" type="SETUP">
+<doc>Launch application. Application can be launched while Appium session running.
+This keyword can be used to launch application during test case or between test cases.</doc>
+<status status="PASS" starttime="20210805 12:01:13.557" endtime="20210805 12:01:20.835"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${TopUp_ShopPage_Btn}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:20.836" endtime="20210805 12:01:29.700"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${TopUp_ShopPage_Btn}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20210805 12:01:29.716" level="INFO">Clicking element 'com.telkomsel.mytelkomsel:id/topup_account_balance'.</msg>
+<status status="PASS" starttime="20210805 12:01:29.702" endtime="20210805 12:01:30.298"/>
+</kw>
+<kw name="Verify Add Credit Page" library="AddCreditPageKeyWord">
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>timeout=60</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:30.302" endtime="20210805 12:01:31.429"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${AddCredit_30Rupi}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:31.430" endtime="20210805 12:01:32.393"/>
+</kw>
+<status status="PASS" starttime="20210805 12:01:30.301" endtime="20210805 12:01:32.394"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${AddCredit_30Rupi}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20210805 12:01:32.406" level="INFO">Clicking element '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/androidx.cardview.widget.CardView[5]/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView[2]'.</msg>
+<status status="PASS" starttime="20210805 12:01:32.394" endtime="20210805 12:01:33.543"/>
+</kw>
+<kw name="Verify Payment Method Page" library="PaymentMethodPageKeyWord">
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_title_contentproduct}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:33.545" endtime="20210805 12:01:35.584"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_headerTitle}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:35.584" endtime="20210805 12:01:35.631"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_view_detail}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:35.632" endtime="20210805 12:01:35.673"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_labelTotalPrice}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:35.673" endtime="20210805 12:01:35.713"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_totalPriceSumConfigPayment}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:35.713" endtime="20210805 12:01:35.750"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_Back_Home}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:35.750" endtime="20210805 12:01:35.805"/>
+</kw>
+<status status="PASS" starttime="20210805 12:01:33.544" endtime="20210805 12:01:35.806"/>
+</kw>
+<kw name="Verify App Payment Method" library="PaymentMethodPageKeyWord">
+<arg>Gopay</arg>
+<arg>${Tnc_GOPAY}</arg>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_title_contentproduct}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:35.807" endtime="20210805 12:01:35.849"/>
+</kw>
+<kw name="Scroll Down If Need" library="CommonKeyWord">
+<kw name="Swipe" library="AppiumLibrary">
+<arg>200</arg>
+<arg>400</arg>
+<arg>200</arg>
+<arg>100</arg>
+<arg>1000</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20210805 12:01:35.850" endtime="20210805 12:01:37.253"/>
+</kw>
+<status status="PASS" starttime="20210805 12:01:35.849" endtime="20210805 12:01:37.253"/>
+</kw>
+<kw name="Scroll Down If Need" library="CommonKeyWord">
+<kw name="Swipe" library="AppiumLibrary">
+<arg>200</arg>
+<arg>400</arg>
+<arg>200</arg>
+<arg>100</arg>
+<arg>1000</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20210805 12:01:37.254" endtime="20210805 12:01:38.664"/>
+</kw>
+<status status="PASS" starttime="20210805 12:01:37.253" endtime="20210805 12:01:38.664"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${paymentName}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:38.665" endtime="20210805 12:01:38.899"/>
+</kw>
+<kw name="Click Text" library="AppiumLibrary">
+<arg>${paymentName}</arg>
+<doc>Click text identified by ``text``.</doc>
+<status status="PASS" starttime="20210805 12:01:38.899" endtime="20210805 12:01:39.021"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${PaymentMethod_btn_continuePayment}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20210805 12:01:39.035" level="INFO">Clicking element 'com.telkomsel.mytelkomsel:id/btPrimary'.</msg>
+<status status="PASS" starttime="20210805 12:01:39.021" endtime="20210805 12:01:39.745"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${name}</var>
+<arg>${paymentName}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20210805 12:01:39.746" level="INFO">${name} = GOPAY</msg>
+<status status="PASS" starttime="20210805 12:01:39.746" endtime="20210805 12:01:39.746"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${paymentName}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:39.746" endtime="20210805 12:01:41.599"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${TermsCondition_EMoneyTitle}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:41.599" endtime="20210805 12:01:41.963"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${btn_description_Term&amp;Con}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:41.963" endtime="20210805 12:01:42.017"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${eMoneyTnc_Logo}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:42.018" endtime="20210805 12:01:42.074"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${paymentmethod_emoney_tnc}</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:42.074" endtime="20210805 12:01:42.236"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>Continue</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:42.236" endtime="20210805 12:01:42.342"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${Load_Content_Close}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20210805 12:01:42.353" level="INFO">Clicking element 'com.telkomsel.mytelkomsel:id/ib_backButton'.</msg>
+<status status="PASS" starttime="20210805 12:01:42.342" endtime="20210805 12:01:42.434"/>
+</kw>
+<status status="PASS" starttime="20210805 12:01:35.806" endtime="20210805 12:01:42.435"/>
+</kw>
+<kw name="Tear Down Test Cases" library="CommonKeyWord" type="TEARDOWN">
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210805 12:01:45.440" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20210805 12:01:42.437" endtime="20210805 12:01:45.440"/>
+</kw>
+<kw name="Quit Application" library="AppiumLibrary">
+<doc>Quit application. Application can be quit while Appium session is kept alive.
+This keyword can be used to close application during test case or between test cases.</doc>
+<status status="PASS" starttime="20210805 12:01:45.440" endtime="20210805 12:01:45.758"/>
+</kw>
+<status status="PASS" starttime="20210805 12:01:42.436" endtime="20210805 12:01:45.758"/>
+</kw>
+<doc>Redirect to term and condition page gopay after selected Denom credit
+|*TC IDs*|iOS TC1597 - Android TC456|
+|*TC Type*| Positive Case|</doc>
+<tag>Fintech2</tag>
+<status status="PASS" starttime="20210805 12:01:13.555" endtime="20210805 12:01:45.761"/>
+</test>
+<test id="s1-t2" name="Redirect to term and condition page Dana after selected Denom credit">
+<kw name="Launch Application" library="AppiumLibrary" type="SETUP">
+<doc>Launch application. Application can be launched while Appium session running.
+This keyword can be used to launch application during test case or between test cases.</doc>
+<status status="PASS" starttime="20210805 12:01:45.766" endtime="20210805 12:01:52.107"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${TopUp_ShopPage_Btn}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:01:52.107" endtime="20210805 12:02:00.412"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${TopUp_ShopPage_Btn}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20210805 12:02:00.429" level="INFO">Clicking element 'com.telkomsel.mytelkomsel:id/topup_account_balance'.</msg>
+<status status="PASS" starttime="20210805 12:02:00.413" endtime="20210805 12:02:01.797"/>
+</kw>
+<kw name="Verify Add Credit Page" library="AddCreditPageKeyWord">
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>timeout=60</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:01.799" endtime="20210805 12:02:03.013"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${AddCredit_30Rupi}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:03.013" endtime="20210805 12:02:05.348"/>
+</kw>
+<status status="PASS" starttime="20210805 12:02:01.798" endtime="20210805 12:02:05.348"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${AddCredit_30Rupi}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20210805 12:02:05.360" level="INFO">Clicking element '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/androidx.cardview.widget.CardView[5]/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView[2]'.</msg>
+<status status="PASS" starttime="20210805 12:02:05.349" endtime="20210805 12:02:05.515"/>
+</kw>
+<kw name="Verify Payment Method Page" library="PaymentMethodPageKeyWord">
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_title_contentproduct}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:05.518" endtime="20210805 12:02:08.488"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_headerTitle}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:08.489" endtime="20210805 12:02:08.522"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_view_detail}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:08.523" endtime="20210805 12:02:08.564"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_labelTotalPrice}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:08.564" endtime="20210805 12:02:08.610"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_totalPriceSumConfigPayment}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:08.610" endtime="20210805 12:02:08.648"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_Back_Home}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:08.649" endtime="20210805 12:02:08.693"/>
+</kw>
+<status status="PASS" starttime="20210805 12:02:05.517" endtime="20210805 12:02:08.693"/>
+</kw>
+<kw name="Verify App Payment Method - for unconnected e-wallets" library="PaymentMethodPageKeyWord">
+<arg>DANA</arg>
+<arg>${Tnc_DANA}</arg>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_title_contentproduct}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:08.694" endtime="20210805 12:02:08.735"/>
+</kw>
+<kw name="Scroll Down If Need" library="CommonKeyWord">
+<kw name="Swipe" library="AppiumLibrary">
+<arg>200</arg>
+<arg>400</arg>
+<arg>200</arg>
+<arg>100</arg>
+<arg>1000</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20210805 12:02:08.736" endtime="20210805 12:02:10.114"/>
+</kw>
+<status status="PASS" starttime="20210805 12:02:08.735" endtime="20210805 12:02:10.114"/>
+</kw>
+<kw name="Scroll Down If Need" library="CommonKeyWord">
+<kw name="Swipe" library="AppiumLibrary">
+<arg>200</arg>
+<arg>400</arg>
+<arg>200</arg>
+<arg>100</arg>
+<arg>1000</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20210805 12:02:10.115" endtime="20210805 12:02:11.563"/>
+</kw>
+<status status="PASS" starttime="20210805 12:02:10.115" endtime="20210805 12:02:11.564"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${paymentName}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:11.564" endtime="20210805 12:02:11.719"/>
+</kw>
+<kw name="Click Text" library="AppiumLibrary">
+<arg>${paymentName}</arg>
+<doc>Click text identified by ``text``.</doc>
+<status status="PASS" starttime="20210805 12:02:11.719" endtime="20210805 12:02:11.839"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${name}</var>
+<arg>${paymentName}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20210805 12:02:11.839" level="INFO">${name} = DANA</msg>
+<status status="PASS" starttime="20210805 12:02:11.839" endtime="20210805 12:02:11.840"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${paymentName}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:11.840" endtime="20210805 12:02:13.449"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${TermsCondition_EMoneyTitle}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:13.449" endtime="20210805 12:02:13.880"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${btn_description_Term&amp;Con}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:13.880" endtime="20210805 12:02:13.928"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${eMoneyTnc_Logo}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:13.928" endtime="20210805 12:02:13.956"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${paymentmethod_emoney_tnc}</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:13.957" endtime="20210805 12:02:14.057"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${Load_Content_Close}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20210805 12:02:14.068" level="INFO">Clicking element 'com.telkomsel.mytelkomsel:id/ib_backButton'.</msg>
+<status status="PASS" starttime="20210805 12:02:14.058" endtime="20210805 12:02:14.136"/>
+</kw>
+<status status="PASS" starttime="20210805 12:02:08.694" endtime="20210805 12:02:14.136"/>
+</kw>
+<kw name="Tear Down Test Cases" library="CommonKeyWord" type="TEARDOWN">
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210805 12:02:17.145" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20210805 12:02:14.137" endtime="20210805 12:02:17.145"/>
+</kw>
+<kw name="Quit Application" library="AppiumLibrary">
+<doc>Quit application. Application can be quit while Appium session is kept alive.
+This keyword can be used to close application during test case or between test cases.</doc>
+<status status="PASS" starttime="20210805 12:02:17.145" endtime="20210805 12:02:17.336"/>
+</kw>
+<status status="PASS" starttime="20210805 12:02:14.137" endtime="20210805 12:02:17.336"/>
+</kw>
+<doc>Redirect to term and condition page Dana after selected Denom credit
+|*TC IDs*|iOS TC1599 - Android TC458|
+|*TC Type*| Positive Case|</doc>
+<tag>Fintech2</tag>
+<status status="PASS" starttime="20210805 12:01:45.764" endtime="20210805 12:02:17.339"/>
+</test>
+<test id="s1-t3" name="Redirect to term and condition page OVO after selected Denom credit">
+<kw name="Launch Application" library="AppiumLibrary" type="SETUP">
+<doc>Launch application. Application can be launched while Appium session running.
+This keyword can be used to launch application during test case or between test cases.</doc>
+<status status="PASS" starttime="20210805 12:02:17.341" endtime="20210805 12:02:23.646"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${TopUp_ShopPage_Btn}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:23.651" endtime="20210805 12:02:32.598"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${TopUp_ShopPage_Btn}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20210805 12:02:32.614" level="INFO">Clicking element 'com.telkomsel.mytelkomsel:id/topup_account_balance'.</msg>
+<status status="PASS" starttime="20210805 12:02:32.598" endtime="20210805 12:02:33.698"/>
+</kw>
+<kw name="Verify Add Credit Page" library="AddCreditPageKeyWord">
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>timeout=60</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:33.700" endtime="20210805 12:02:34.649"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${AddCredit_30Rupi}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:34.649" endtime="20210805 12:02:35.587"/>
+</kw>
+<status status="PASS" starttime="20210805 12:02:33.699" endtime="20210805 12:02:35.587"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${AddCredit_30Rupi}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20210805 12:02:35.599" level="INFO">Clicking element '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/androidx.cardview.widget.CardView[5]/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView[2]'.</msg>
+<status status="PASS" starttime="20210805 12:02:35.588" endtime="20210805 12:02:36.916"/>
+</kw>
+<kw name="Verify Payment Method Page" library="PaymentMethodPageKeyWord">
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_title_contentproduct}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:36.919" endtime="20210805 12:02:38.897"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_headerTitle}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:38.897" endtime="20210805 12:02:38.938"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_view_detail}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:38.939" endtime="20210805 12:02:38.987"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_labelTotalPrice}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:38.987" endtime="20210805 12:02:39.035"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_totalPriceSumConfigPayment}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:39.035" endtime="20210805 12:02:39.081"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_Back_Home}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:39.081" endtime="20210805 12:02:39.122"/>
+</kw>
+<status status="PASS" starttime="20210805 12:02:36.917" endtime="20210805 12:02:39.122"/>
+</kw>
+<kw name="Verify App Payment Method" library="PaymentMethodPageKeyWord">
+<arg>OVO</arg>
+<arg>${Tnc_OVO}</arg>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_title_contentproduct}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:39.124" endtime="20210805 12:02:39.162"/>
+</kw>
+<kw name="Scroll Down If Need" library="CommonKeyWord">
+<kw name="Swipe" library="AppiumLibrary">
+<arg>200</arg>
+<arg>400</arg>
+<arg>200</arg>
+<arg>100</arg>
+<arg>1000</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20210805 12:02:39.163" endtime="20210805 12:02:40.499"/>
+</kw>
+<status status="PASS" starttime="20210805 12:02:39.163" endtime="20210805 12:02:40.500"/>
+</kw>
+<kw name="Scroll Down If Need" library="CommonKeyWord">
+<kw name="Swipe" library="AppiumLibrary">
+<arg>200</arg>
+<arg>400</arg>
+<arg>200</arg>
+<arg>100</arg>
+<arg>1000</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20210805 12:02:40.500" endtime="20210805 12:02:41.940"/>
+</kw>
+<status status="PASS" starttime="20210805 12:02:40.500" endtime="20210805 12:02:41.940"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${paymentName}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:41.940" endtime="20210805 12:02:42.194"/>
+</kw>
+<kw name="Click Text" library="AppiumLibrary">
+<arg>${paymentName}</arg>
+<doc>Click text identified by ``text``.</doc>
+<status status="PASS" starttime="20210805 12:02:42.195" endtime="20210805 12:02:42.312"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${PaymentMethod_btn_continuePayment}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20210805 12:02:42.327" level="INFO">Clicking element 'com.telkomsel.mytelkomsel:id/btPrimary'.</msg>
+<status status="PASS" starttime="20210805 12:02:42.312" endtime="20210805 12:02:43.031"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${name}</var>
+<arg>${paymentName}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20210805 12:02:43.032" level="INFO">${name} = OVO</msg>
+<status status="PASS" starttime="20210805 12:02:43.031" endtime="20210805 12:02:43.032"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${paymentName}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:43.032" endtime="20210805 12:02:44.296"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${TermsCondition_EMoneyTitle}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:44.296" endtime="20210805 12:02:44.869"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${btn_description_Term&amp;Con}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:44.869" endtime="20210805 12:02:44.915"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${eMoneyTnc_Logo}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:44.916" endtime="20210805 12:02:44.966"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${paymentmethod_emoney_tnc}</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:44.966" endtime="20210805 12:02:45.055"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>Continue</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:45.055" endtime="20210805 12:02:45.371"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${Load_Content_Close}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20210805 12:02:45.384" level="INFO">Clicking element 'com.telkomsel.mytelkomsel:id/ib_backButton'.</msg>
+<status status="PASS" starttime="20210805 12:02:45.371" endtime="20210805 12:02:45.481"/>
+</kw>
+<status status="PASS" starttime="20210805 12:02:39.123" endtime="20210805 12:02:45.482"/>
+</kw>
+<kw name="Tear Down Test Cases" library="CommonKeyWord" type="TEARDOWN">
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210805 12:02:48.491" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20210805 12:02:45.483" endtime="20210805 12:02:48.491"/>
+</kw>
+<kw name="Quit Application" library="AppiumLibrary">
+<doc>Quit application. Application can be quit while Appium session is kept alive.
+This keyword can be used to close application during test case or between test cases.</doc>
+<status status="PASS" starttime="20210805 12:02:48.491" endtime="20210805 12:02:48.651"/>
+</kw>
+<status status="PASS" starttime="20210805 12:02:45.482" endtime="20210805 12:02:48.651"/>
+</kw>
+<doc>Redirect to term and condition page OVO after selected Denom credit
+|*TC IDs*|iOS TC1601 - Android TC460|
+|*TC Type*| Positive Case|</doc>
+<tag>Fintech2</tag>
+<status status="PASS" starttime="20210805 12:02:17.340" endtime="20210805 12:02:48.653"/>
+</test>
+<test id="s1-t4" name="Directed to ShopeePay Term and Condition Page after selected Denom credit">
+<kw name="Launch Application" library="AppiumLibrary" type="SETUP">
+<doc>Launch application. Application can be launched while Appium session running.
+This keyword can be used to launch application during test case or between test cases.</doc>
+<status status="PASS" starttime="20210805 12:02:48.654" endtime="20210805 12:02:55.225"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${TopUp_ShopPage_Btn}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:02:55.227" endtime="20210805 12:03:02.087"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${TopUp_ShopPage_Btn}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20210805 12:03:02.103" level="INFO">Clicking element 'com.telkomsel.mytelkomsel:id/topup_account_balance'.</msg>
+<status status="PASS" starttime="20210805 12:03:02.088" endtime="20210805 12:03:02.851"/>
+</kw>
+<kw name="Verify Add Credit Page" library="AddCreditPageKeyWord">
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>timeout=60</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:03:02.853" endtime="20210805 12:03:04.040"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${AddCredit_30Rupi}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:03:04.040" endtime="20210805 12:03:05.631"/>
+</kw>
+<status status="PASS" starttime="20210805 12:03:02.853" endtime="20210805 12:03:05.632"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${AddCredit_30Rupi}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20210805 12:03:05.644" level="INFO">Clicking element '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/androidx.cardview.widget.CardView[5]/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView[2]'.</msg>
+<status status="PASS" starttime="20210805 12:03:05.632" endtime="20210805 12:03:06.925"/>
+</kw>
+<kw name="Verify Payment Method Page" library="PaymentMethodPageKeyWord">
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_title_contentproduct}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:03:06.927" endtime="20210805 12:03:08.990"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_headerTitle}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:03:08.990" endtime="20210805 12:03:09.037"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_view_detail}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:03:09.037" endtime="20210805 12:03:09.084"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_labelTotalPrice}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:03:09.085" endtime="20210805 12:03:09.130"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_totalPriceSumConfigPayment}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:03:09.130" endtime="20210805 12:03:09.179"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_Back_Home}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:03:09.180" endtime="20210805 12:03:09.224"/>
+</kw>
+<status status="PASS" starttime="20210805 12:03:06.926" endtime="20210805 12:03:09.224"/>
+</kw>
+<kw name="Verify App Payment Method" library="PaymentMethodPageKeyWord">
+<arg>ShopeePay</arg>
+<arg>${Tnc_SHOPEEPAY}</arg>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${PaymentMethod_title_contentproduct}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:03:09.226" endtime="20210805 12:03:09.270"/>
+</kw>
+<kw name="Scroll Down If Need" library="CommonKeyWord">
+<kw name="Swipe" library="AppiumLibrary">
+<arg>200</arg>
+<arg>400</arg>
+<arg>200</arg>
+<arg>100</arg>
+<arg>1000</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20210805 12:03:09.270" endtime="20210805 12:03:10.683"/>
+</kw>
+<status status="PASS" starttime="20210805 12:03:09.270" endtime="20210805 12:03:10.683"/>
+</kw>
+<kw name="Scroll Down If Need" library="CommonKeyWord">
+<kw name="Swipe" library="AppiumLibrary">
+<arg>200</arg>
+<arg>400</arg>
+<arg>200</arg>
+<arg>100</arg>
+<arg>1000</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" starttime="20210805 12:03:10.684" endtime="20210805 12:03:12.217"/>
+</kw>
+<status status="PASS" starttime="20210805 12:03:10.683" endtime="20210805 12:03:12.217"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${paymentName}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:03:12.218" endtime="20210805 12:03:12.453"/>
+</kw>
+<kw name="Click Text" library="AppiumLibrary">
+<arg>${paymentName}</arg>
+<doc>Click text identified by ``text``.</doc>
+<status status="PASS" starttime="20210805 12:03:12.453" endtime="20210805 12:03:12.586"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${PaymentMethod_btn_continuePayment}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20210805 12:03:12.601" level="INFO">Clicking element 'com.telkomsel.mytelkomsel:id/btPrimary'.</msg>
+<status status="PASS" starttime="20210805 12:03:12.586" endtime="20210805 12:03:13.317"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${name}</var>
+<arg>${paymentName}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20210805 12:03:13.318" level="INFO">${name} = SHOPEEPAY</msg>
+<status status="PASS" starttime="20210805 12:03:13.318" endtime="20210805 12:03:13.318"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${paymentName}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:03:13.319" endtime="20210805 12:03:14.652"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${TermsCondition_EMoneyTitle}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:03:14.652" endtime="20210805 12:03:15.215"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${btn_description_Term&amp;Con}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:03:15.215" endtime="20210805 12:03:15.237"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${eMoneyTnc_Logo}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:03:15.237" endtime="20210805 12:03:15.262"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${paymentmethod_emoney_tnc}</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:03:15.262" endtime="20210805 12:03:15.424"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>Continue</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20210805 12:03:15.425" endtime="20210805 12:03:15.628"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${Load_Content_Close}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20210805 12:03:15.639" level="INFO">Clicking element 'com.telkomsel.mytelkomsel:id/ib_backButton'.</msg>
+<status status="PASS" starttime="20210805 12:03:15.628" endtime="20210805 12:03:15.716"/>
+</kw>
+<status status="PASS" starttime="20210805 12:03:09.225" endtime="20210805 12:03:15.717"/>
+</kw>
+<kw name="Tear Down Test Cases" library="CommonKeyWord" type="TEARDOWN">
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210805 12:03:18.726" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20210805 12:03:15.718" endtime="20210805 12:03:18.726"/>
+</kw>
+<kw name="Quit Application" library="AppiumLibrary">
+<doc>Quit application. Application can be quit while Appium session is kept alive.
+This keyword can be used to close application during test case or between test cases.</doc>
+<status status="PASS" starttime="20210805 12:03:18.726" endtime="20210805 12:03:18.910"/>
+</kw>
+<status status="PASS" starttime="20210805 12:03:15.718" endtime="20210805 12:03:18.910"/>
+</kw>
+<doc>Directed to ShopeePay Term and Condition Page after selected Denom credit
+|*TC IDs*|Android TC462|
+|*TC Type*| Positive Case|</doc>
+<tag>Fintech2</tag>
+<status status="PASS" starttime="20210805 12:02:48.654" endtime="20210805 12:03:18.915"/>
+</test>
+<kw name="Close Application" library="AppiumLibrary" type="TEARDOWN">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" starttime="20210805 12:03:18.924" endtime="20210805 12:03:19.620"/>
+</kw>
+<status status="PASS" starttime="20210805 11:58:57.638" endtime="20210805 12:03:19.620"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="4" fail="0" skip="0">Fintech2</stat>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="02 PaymentFinTech">02 PaymentFinTech</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

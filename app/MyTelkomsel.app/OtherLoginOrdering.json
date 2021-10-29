@@ -1,0 +1,21 @@
+{
+    "otherLoginOrder": [
+    {
+      "code": "otherlogin-apple",
+      "order": "1"
+    },
+    {
+      "code": "otherLogin-fb",
+      "order": "2"
+    },
+    {
+      "code": "otherLogin-tw",
+      "order": "3"
+    },
+    {
+      "code": "otherLogin-google",
+      "order": "4"
+    }
+  ]
+}
+

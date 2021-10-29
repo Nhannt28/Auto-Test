@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0 (Python 3.7.10 on darwin)" generated="20211013 12:59:12.587" rpa="false" schemaversion="2">
+<suite id="s1" name="RoamingPackage" source="/Users/phamhaituan/Documents/PROJECTS/Auto_git/PhinconRepo/PhinconAutomationtest/6.0.0/testcases/Regression/14_RoamingPackage/RoamingPackage.robot">
+<kw name="Check PreConditional" type="SETUP">
+<tag>Invalid Phone Number</tag>
+<doc>Pre Step to make sure user already login, check premission HomePage appear (TEST DOCUMENT)
+|*TC Android*| TC531 TC535 TC536 TC537 TC538|
+|*TC IOS*| TC1669 TC1673 TC1674 TC1675 TC1676|
+|*TC Type*| Positive Case|</doc>
+<kw name="Reopen App" library="config">
+<arg>${EMPTY}</arg>
+<kw name="Open Application" library="AppiumLibrary">
+<arg>${HOST}:${port}/wd/hub</arg>
+<arg>automationName=${AUTOMATION_NAME}</arg>
+<arg>app=${APP}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>platformVersion=${PLATFORM_VERSION}</arg>
+<arg>appPackage=${APP_PACKAGE}</arg>
+<arg>appActivity=${Activity_Splash}</arg>
+<arg>deviceName=${Device_Name}</arg>
+<arg>autoGrantPermissions=true</arg>
+<arg>noReset=true</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<status status="PASS" starttime="20211013 12:59:15.095" endtime="20211013 12:59:23.366"/>
+</kw>
+<status status="PASS" starttime="20211013 12:59:15.091" endtime="20211013 12:59:23.367"/>
+</kw>
+<kw name="Check Launching New version" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Skip}</var>
+<arg>Wait until page contains</arg>
+<arg>${WCMS["onboarding_skip_button"]}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${WCMS["onboarding_skip_button"]}</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 12:59:30.118" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 12:59:29.033" endtime="20211013 12:59:30.119"/>
+</kw>
+<msg timestamp="20211013 12:59:30.120" level="FAIL">Text 'Skip' did not appear in 5 seconds</msg>
+<status status="FAIL" starttime="20211013 12:59:23.371" endtime="20211013 12:59:30.120"/>
+</kw>
+<msg timestamp="20211013 12:59:30.121" level="INFO">${Skip} = False</msg>
+<status status="PASS" starttime="20211013 12:59:23.370" endtime="20211013 12:59:30.121"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Skip}==True</arg>
+<arg>Click Text</arg>
+<arg>${WCMS["onboarding_skip_button"]}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:59:30.122" endtime="20211013 12:59:30.123"/>
+</kw>
+<status status="PASS" starttime="20211013 12:59:23.368" endtime="20211013 12:59:30.124"/>
+</kw>
+<kw name="Check Permission First Launch" library="CommonKeyWord">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${ENV}'=='ios'</arg>
+<arg>Check Permission iOS</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:59:30.126" endtime="20211013 12:59:30.128"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${ENV}'=='android'</arg>
+<arg>Check Permission Android</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Check Permission Android" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Permission}</var>
+<arg>Wait until page contains</arg>
+<arg>${MakeCall_Permission}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${MakeCall_Permission}</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 12:59:38.101" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-2.png"&gt;&lt;img src="appium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 12:59:36.784" endtime="20211013 12:59:38.102"/>
+</kw>
+<msg timestamp="20211013 12:59:38.102" level="FAIL">Text 'Allow MT-Native-Preprod to make and manage phone calls?' did not appear in 5 seconds</msg>
+<status status="FAIL" starttime="20211013 12:59:30.129" endtime="20211013 12:59:38.103"/>
+</kw>
+<msg timestamp="20211013 12:59:38.103" level="INFO">${Permission} = False</msg>
+<status status="PASS" starttime="20211013 12:59:30.129" endtime="20211013 12:59:38.103"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Permission}==True</arg>
+<arg>Verify Permission Android</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:59:38.103" endtime="20211013 12:59:38.105"/>
+</kw>
+<status status="PASS" starttime="20211013 12:59:30.128" endtime="20211013 12:59:38.105"/>
+</kw>
+<status status="PASS" starttime="20211013 12:59:30.128" endtime="20211013 12:59:38.105"/>
+</kw>
+<status status="PASS" starttime="20211013 12:59:30.124" endtime="20211013 12:59:38.106"/>
+</kw>
+<kw name="Check Tutup popup" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Tutup}</var>
+<arg>Wait until page contains element</arg>
+<arg>${Tutup_Btn}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${Tutup_Btn}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 12:59:44.619" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-3.png"&gt;&lt;img src="appium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 12:59:43.371" endtime="20211013 12:59:44.620"/>
+</kw>
+<msg timestamp="20211013 12:59:44.622" level="FAIL">Element 'com.telkomsel.mytelkomsel:id/insider_adjacent1' did not appear in 5 seconds</msg>
+<status status="FAIL" starttime="20211013 12:59:38.110" endtime="20211013 12:59:44.623"/>
+</kw>
+<msg timestamp="20211013 12:59:44.623" level="INFO">${Tutup} = False</msg>
+<status status="PASS" starttime="20211013 12:59:38.109" endtime="20211013 12:59:44.623"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Tutup}==True</arg>
+<arg>Click Element</arg>
+<arg>${Tutup_Btn}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 12:59:44.624" endtime="20211013 12:59:44.624"/>
+</kw>
+<status status="PASS" starttime="20211013 12:59:38.107" endtime="20211013 12:59:44.625"/>
+</kw>
+<kw name="Check Reminder" library="LoginCommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Reminder}</var>
+<arg>Wait until page contains</arg>
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 13:00:16.331" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-4.png"&gt;&lt;img src="appium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 13:00:15.270" endtime="20211013 13:00:16.331"/>
+</kw>
+<msg timestamp="20211013 13:00:16.332" level="FAIL">Text 'Remind me later' did not appear in 30 seconds</msg>
+<status status="FAIL" starttime="20211013 12:59:44.627" endtime="20211013 13:00:16.332"/>
+</kw>
+<msg timestamp="20211013 13:00:16.332" level="INFO">${Reminder} = False</msg>
+<status status="PASS" starttime="20211013 12:59:44.626" endtime="20211013 13:00:16.332"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Reminder}==True</arg>
+<arg>Click Text</arg>
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 13:00:16.333" endtime="20211013 13:00:16.334"/>
+</kw>
+<status status="PASS" starttime="20211013 12:59:44.625" endtime="20211013 13:00:16.335"/>
+</kw>
+<kw name="Check Tutup popup" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Tutup}</var>
+<arg>Wait until page contains element</arg>
+<arg>${Tutup_Btn}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${Tutup_Btn}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 13:00:22.372" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-5.png"&gt;&lt;img src="appium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 13:00:21.426" endtime="20211013 13:00:22.372"/>
+</kw>
+<msg timestamp="20211013 13:00:22.373" level="FAIL">Element 'com.telkomsel.mytelkomsel:id/insider_adjacent1' did not appear in 5 seconds</msg>
+<status status="FAIL" starttime="20211013 13:00:16.337" endtime="20211013 13:00:22.373"/>
+</kw>
+<msg timestamp="20211013 13:00:22.374" level="INFO">${Tutup} = False</msg>
+<status status="PASS" starttime="20211013 13:00:16.336" endtime="20211013 13:00:22.378"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Tutup}==True</arg>
+<arg>Click Element</arg>
+<arg>${Tutup_Btn}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 13:00:22.380" endtime="20211013 13:00:22.382"/>
+</kw>
+<status status="PASS" starttime="20211013 13:00:16.336" endtime="20211013 13:00:22.383"/>
+</kw>
+<kw name="Check default lang and swtich" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Lang}</var>
+<arg>Wait until page Contains</arg>
+<arg>ID</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>ID</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 13:00:53.504" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-6.png"&gt;&lt;img src="appium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 13:00:52.510" endtime="20211013 13:00:53.504"/>
+</kw>
+<msg timestamp="20211013 13:00:53.505" level="FAIL">Text 'ID' did not appear in 30 seconds</msg>
+<status status="FAIL" starttime="20211013 13:00:22.387" endtime="20211013 13:00:53.505"/>
+</kw>
+<msg timestamp="20211013 13:00:53.505" level="INFO">${Lang} = False</msg>
+<status status="PASS" starttime="20211013 13:00:22.385" endtime="20211013 13:00:53.505"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Lang}==True</arg>
+<arg>Click Text</arg>
+<arg>ID</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 13:00:53.505" endtime="20211013 13:00:53.505"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Lang}==True</arg>
+<arg>Click Text</arg>
+<arg>(United States)</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 13:00:53.506" endtime="20211013 13:00:53.506"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Lang}==True</arg>
+<arg>Wait until page Contains</arg>
+<arg>EN</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 13:00:53.506" endtime="20211013 13:00:53.506"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Lang}==True</arg>
+<arg>Wait until page Contains</arg>
+<arg>EN</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 13:00:53.507" endtime="20211013 13:00:53.507"/>
+</kw>
+<status status="PASS" starttime="20211013 13:00:22.383" endtime="20211013 13:00:53.507"/>
+</kw>
+<kw name="Check Banner on the login page" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${banner}</var>
+<arg>Wait until page contains</arg>
+<arg>${WCMS["onboarding_skip_button"]}</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${WCMS["onboarding_skip_button"]}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 13:01:24.871" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-7.png"&gt;&lt;img src="appium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 13:01:23.841" endtime="20211013 13:01:24.871"/>
+</kw>
+<msg timestamp="20211013 13:01:24.872" level="FAIL">Text 'Skip' did not appear in 30 seconds</msg>
+<status status="FAIL" starttime="20211013 13:00:53.510" endtime="20211013 13:01:24.873"/>
+</kw>
+<msg timestamp="20211013 13:01:24.873" level="INFO">${banner} = False</msg>
+<status status="PASS" starttime="20211013 13:00:53.509" endtime="20211013 13:01:24.873"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${banner}==True</arg>
+<arg>Click Text</arg>
+<arg>${WCMS["onboarding_skip_button"]}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 13:01:24.873" endtime="20211013 13:01:24.875"/>
+</kw>
+<status status="PASS" starttime="20211013 13:00:53.508" endtime="20211013 13:01:24.875"/>
+</kw>
+<kw name="Check Logined Default User" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Result}</var>
+<arg>Wait until page contains</arg>
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20211013 13:01:24.879" endtime="20211013 13:01:25.684"/>
+</kw>
+<msg timestamp="20211013 13:01:25.684" level="INFO">${Result} = True</msg>
+<status status="PASS" starttime="20211013 13:01:24.877" endtime="20211013 13:01:25.685"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Result}==False</arg>
+<arg>Check First Time Install App And Login</arg>
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>${TW_Phonenumber}</arg>
+<arg>${TW_Account}</arg>
+<arg>${TW_Password}</arg>
+<arg>${TW_Email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 13:01:25.687" endtime="20211013 13:01:25.688"/>
+</kw>
+<status status="PASS" starttime="20211013 13:01:24.876" endtime="20211013 13:01:25.688"/>
+</kw>
+<kw name="Check Tutup popup" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Tutup}</var>
+<arg>Wait until page contains element</arg>
+<arg>${Tutup_Btn}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${Tutup_Btn}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 13:01:31.813" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-8.png"&gt;&lt;img src="appium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 13:01:30.788" endtime="20211013 13:01:31.813"/>
+</kw>
+<msg timestamp="20211013 13:01:31.814" level="FAIL">Element 'com.telkomsel.mytelkomsel:id/insider_adjacent1' did not appear in 5 seconds</msg>
+<status status="FAIL" starttime="20211013 13:01:25.691" endtime="20211013 13:01:31.815"/>
+</kw>
+<msg timestamp="20211013 13:01:31.815" level="INFO">${Tutup} = False</msg>
+<status status="PASS" starttime="20211013 13:01:25.690" endtime="20211013 13:01:31.816"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Tutup}==True</arg>
+<arg>Click Element</arg>
+<arg>${Tutup_Btn}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 13:01:31.816" endtime="20211013 13:01:31.818"/>
+</kw>
+<status status="PASS" starttime="20211013 13:01:25.688" endtime="20211013 13:01:31.819"/>
+</kw>
+<kw name="Check Reminder" library="LoginCommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Reminder}</var>
+<arg>Wait until page contains</arg>
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 13:02:03.332" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-9.png"&gt;&lt;img src="appium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 13:02:02.211" endtime="20211013 13:02:03.332"/>
+</kw>
+<msg timestamp="20211013 13:02:03.332" level="FAIL">Text 'Remind me later' did not appear in 30 seconds</msg>
+<status status="FAIL" starttime="20211013 13:01:31.822" endtime="20211013 13:02:03.332"/>
+</kw>
+<msg timestamp="20211013 13:02:03.332" level="INFO">${Reminder} = False</msg>
+<status status="PASS" starttime="20211013 13:01:31.821" endtime="20211013 13:02:03.332"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Reminder}==True</arg>
+<arg>Click Text</arg>
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 13:02:03.333" endtime="20211013 13:02:03.333"/>
+</kw>
+<status status="PASS" starttime="20211013 13:01:31.819" endtime="20211013 13:02:03.333"/>
+</kw>
+<kw name="Check Permission Location Display" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Result}</var>
+<arg>Wait until page contains</arg>
+<arg>${Location_Permission}</arg>
+<arg>timeout=15</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${Location_Permission}</arg>
+<arg>timeout=15</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 13:02:19.574" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-10.png"&gt;&lt;img src="appium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 13:02:18.536" endtime="20211013 13:02:19.574"/>
+</kw>
+<msg timestamp="20211013 13:02:19.575" level="FAIL">Text 'Allow MT-Native-Preprod to access this device's location?' did not appear in 15 seconds</msg>
+<status status="FAIL" starttime="20211013 13:02:03.334" endtime="20211013 13:02:19.575"/>
+</kw>
+<msg timestamp="20211013 13:02:19.576" level="INFO">${Result} = False</msg>
+<status status="PASS" starttime="20211013 13:02:03.333" endtime="20211013 13:02:19.576"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Result}==True</arg>
+<arg>Click Element</arg>
+<arg>${Location_Permission_Allow}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 13:02:19.577" endtime="20211013 13:02:19.578"/>
+</kw>
+<status status="PASS" starttime="20211013 13:02:03.333" endtime="20211013 13:02:19.578"/>
+</kw>
+<status status="PASS" starttime="20211013 12:59:15.090" endtime="20211013 13:02:19.579"/>
+</kw>
+<test id="s1-t1" name="Verify count card Package Populer Destination">
+<kw name="Launch Application" library="AppiumLibrary" type="SETUP">
+<doc>Launch application. Application can be launched while Appium session running.
+This keyword can be used to launch application during test case or between test cases.</doc>
+<status status="PASS" starttime="20211013 13:02:19.584" endtime="20211013 13:02:25.650"/>
+</kw>
+<kw name="Go to Shop Page" library="ShopPageKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${status}</var>
+<arg>Wait until page contains Element</arg>
+<arg>${TabBar_Home}</arg>
+<arg>timeout=60</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${TabBar_Home}</arg>
+<arg>timeout=60</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20211013 13:02:25.651" endtime="20211013 13:02:30.760"/>
+</kw>
+<msg timestamp="20211013 13:02:30.761" level="INFO">${status} = True</msg>
+<status status="PASS" starttime="20211013 13:02:25.651" endtime="20211013 13:02:30.761"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${status} ==False</arg>
+<arg>Launch Application</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 13:02:30.761" endtime="20211013 13:02:30.764"/>
+</kw>
+<kw name="Check Reminder" library="LoginCommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Reminder}</var>
+<arg>Wait until page contains</arg>
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 13:03:02.224" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-11.png"&gt;&lt;img src="appium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 13:03:01.142" endtime="20211013 13:03:02.225"/>
+</kw>
+<msg timestamp="20211013 13:03:02.226" level="FAIL">Text 'Remind me later' did not appear in 30 seconds</msg>
+<status status="FAIL" starttime="20211013 13:02:30.766" endtime="20211013 13:03:02.226"/>
+</kw>
+<msg timestamp="20211013 13:03:02.226" level="INFO">${Reminder} = False</msg>
+<status status="PASS" starttime="20211013 13:02:30.766" endtime="20211013 13:03:02.226"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Reminder}==True</arg>
+<arg>Click Text</arg>
+<arg>${WCMS["dashboard_link_email_remind_button"]}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 13:03:02.228" endtime="20211013 13:03:02.229"/>
+</kw>
+<status status="PASS" starttime="20211013 13:02:30.765" endtime="20211013 13:03:02.230"/>
+</kw>
+<kw name="Check Logined Default User" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Result}</var>
+<arg>Wait until page contains</arg>
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>timeout=30</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20211013 13:03:02.231" endtime="20211013 13:03:02.978"/>
+</kw>
+<msg timestamp="20211013 13:03:02.978" level="INFO">${Result} = True</msg>
+<status status="PASS" starttime="20211013 13:03:02.230" endtime="20211013 13:03:02.978"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Result}==False</arg>
+<arg>Check First Time Install App And Login</arg>
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>${TW_Phonenumber}</arg>
+<arg>${TW_Account}</arg>
+<arg>${TW_Password}</arg>
+<arg>${TW_Email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 13:03:02.978" endtime="20211013 13:03:02.979"/>
+</kw>
+<status status="PASS" starttime="20211013 13:03:02.230" endtime="20211013 13:03:02.979"/>
+</kw>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${TW_LinkAccount_Phonenumber}</arg>
+<arg>timeout=60</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" starttime="20211013 13:03:02.979" endtime="20211013 13:03:03.620"/>
+</kw>
+<kw name="Check VOC Dispaly And Skip" library="CommonKeyWord">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Result}</var>
+<arg>Wait until page contains</arg>
+<arg>${WCMS["voc_scale_rating_default"]}</arg>
+<arg>timeout=20</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${WCMS["voc_scale_rating_default"]}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 13:03:24.666" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-12.png"&gt;&lt;img src="appium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 13:03:23.656" endtime="20211013 13:03:24.666"/>
+</kw>
+<msg timestamp="20211013 13:03:24.667" level="FAIL">Text 'Please fill the star rating' did not appear in 20 seconds</msg>
+<status status="FAIL" starttime="20211013 13:03:03.623" endtime="20211013 13:03:24.668"/>
+</kw>
+<msg timestamp="20211013 13:03:24.668" level="INFO">${Result} = False</msg>
+<status status="PASS" starttime="20211013 13:03:03.622" endtime="20211013 13:03:24.668"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Result}==True</arg>
+<arg>Click Element</arg>
+<arg>${VOC_Skip}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 13:03:24.669" endtime="20211013 13:03:24.670"/>
+</kw>
+<status status="PASS" starttime="20211013 13:03:03.621" endtime="20211013 13:03:24.671"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${TabBar_Shop}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20211013 13:03:24.672" endtime="20211013 13:03:24.822"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${TabBar_Shop}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20211013 13:03:24.861" level="INFO">Clicking element 'com.telkomsel.mytelkomsel:id/navigation_shop'.</msg>
+<status status="PASS" starttime="20211013 13:03:24.823" endtime="20211013 13:03:25.105"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20211013 13:03:27.108" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20211013 13:03:25.106" endtime="20211013 13:03:27.109"/>
+</kw>
+<status status="PASS" starttime="20211013 13:02:25.650" endtime="20211013 13:03:27.110"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Special_for_you}</var>
+<arg>Wait until page Contains</arg>
+<arg>${WCMS["shop_offer_title"]}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<arg>${WCMS["shop_offer_title"]}</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 13:03:33.177" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-13.png"&gt;&lt;img src="appium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 13:03:32.176" endtime="20211013 13:03:33.178"/>
+</kw>
+<msg timestamp="20211013 13:03:33.182" level="FAIL">Text 'Special for You' did not appear in 5 seconds</msg>
+<status status="FAIL" starttime="20211013 13:03:27.112" endtime="20211013 13:03:33.182"/>
+</kw>
+<msg timestamp="20211013 13:03:33.183" level="INFO">${Special_for_you} = False</msg>
+<status status="PASS" starttime="20211013 13:03:27.111" endtime="20211013 13:03:33.184"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Special_for_you}==True</arg>
+<arg>Swipe</arg>
+<arg>200</arg>
+<arg>1500</arg>
+<arg>200</arg>
+<arg>600</arg>
+<arg>1000</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211013 13:03:33.184" endtime="20211013 13:03:33.185"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${Roaming_category}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20211013 13:03:33.206" level="INFO">Clicking element '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.TextView'.</msg>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211013 13:03:34.587" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-14.png"&gt;&lt;img src="appium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211013 13:03:33.517" endtime="20211013 13:03:34.588"/>
+</kw>
+<msg timestamp="20211013 13:03:34.593" level="FAIL">ValueError: Element locator '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.TextView' did not match any elements.</msg>
+<status status="FAIL" starttime="20211013 13:03:33.185" endtime="20211013 13:03:34.593"/>
+</kw>
+<kw name="Load Roaming package fail" library="PurchaseCommonKeyword">
+<status status="NOT RUN" starttime="20211013 13:03:34.596" endtime="20211013 13:03:34.596"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<arg>Page Should Contain Text</arg>
+<arg>${WCMS["roaming_populer_destination_header"]}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" starttime="20211013 13:03:34.596" endtime="20211013 13:03:34.596"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<arg>Page Should Contain Text</arg>
+<arg>${WCMS["roaming_populer_destination_subtitle"]}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" starttime="20211013 13:03:34.597" endtime="20211013 13:03:34.597"/>
+</kw>
+<kw name="Swipe" library="AppiumLibrary">
+<arg>200</arg>
+<arg>1800</arg>
+<arg>200</arg>
+<arg>1300</arg>
+<arg>1000</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="NOT RUN" starttime="20211013 13:03:34.597" endtime="20211013 13:03:34.598"/>
+</kw>
+<kw name="Count card Destination" library="PurchaseCommonKeyword">
+<status status="NOT RUN" starttime="20211013 13:03:34.598" endtime="20211013 13:03:34.599"/>
+</kw>
+<kw name="Quit Application" library="AppiumLibrary" type="TEARDOWN">
+<doc>Quit application. Application can be quit while Appium session is kept alive.
+This keyword can be used to close application during test case or between test cases.</doc>
+<status status="PASS" starttime="20211013 13:03:34.600" endtime="20211013 13:03:34.811"/>
+</kw>
+<tag>Roaming0</tag>
+<status status="FAIL" starttime="20211013 13:02:19.580" endtime="20211013 13:03:34.811">ValueError: Element locator '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.TextView' did not match any elements.</status>
+</test>
+<kw name="Close Application" library="AppiumLibrary" type="TEARDOWN">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" starttime="20211013 13:03:34.812" endtime="20211013 13:03:35.546"/>
+</kw>
+<status status="FAIL" starttime="20211013 12:59:12.589" endtime="20211013 13:03:35.546"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Roaming0</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="RoamingPackage">RoamingPackage</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

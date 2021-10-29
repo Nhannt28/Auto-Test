@@ -1,0 +1,20 @@
+Run with android
+robot --variable ENV:android Account_Menu.robot
+Run with ios
+robot --variable ENV:ios Account_Menu.robot
+
+
+new:
+robot --variable device:sm_iOS_14 .
+
+
+
+#Bash
+#!/bin/sh 
+osascript <<END 
+tell application "Terminal"
+    do script "cd \"`pwd`\";$1;exit"
+end tell
+END
+
+And don't forget to 'chmod +x file' to make it executable. 

@@ -1,0 +1,12 @@
+{
+  "status": "000000",
+  "message": "Success",
+  "data": {
+    "title": "Yang Terbaru dair MyTelkomsel versi 5.6.0",
+    "body": "<ul><li>Tambilan aru halaman akun</li><li>Penambahan Citibank sebagai metode pembayaran</li><li>Penambahan layanan baru untuk VAS Magic Call</li><li>Peningkatan Keamanan</li><li>Perbaikan bug</li</ul>",
+    "size": "5 MB",
+    "appVersion": "5.5.0",
+    "maxOptional": 5,
+    "durationOptional": 3
+  }
+}

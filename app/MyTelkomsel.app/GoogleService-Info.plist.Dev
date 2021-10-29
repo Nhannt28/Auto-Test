@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>FIREBASE_DEBUG_ENABLED</key>
+    <true/>
+	<key>CLIENT_ID</key>
+	<string>592660795331-go3c5ijulntle3gc3kkv58kocvlqji2h.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.592660795331-go3c5ijulntle3gc3kkv58kocvlqji2h</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>592660795331-9nf7nokch6sckpa4cfk2i9cf6bnk8gmk.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDCieyrSDd-Yj0QxrFCGToYJCKKAC0oJm4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>592660795331</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>telkomsel.mytelkomsel-dev</string>
+	<key>PROJECT_ID</key>
+	<string>mt-preprod</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mt-preprod.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<true/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:592660795331:ios:5c8cdf28f0625da8</string>
+	<key>DATABASE_URL</key>
+	<string>https://mt-preprod.firebaseio.com</string>
+</dict>
+</plist>
